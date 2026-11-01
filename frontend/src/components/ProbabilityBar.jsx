@@ -5,6 +5,7 @@ const CLASS_CONFIG = [
     id: 0,
     key: 'not_damaged',
     label: 'NOT DAMAGED',
+    pitchLabel: 'Healthy',
     scientific: 'No Significant Heatwave Damage',
     color: '#16a34a',
     bg: 'bg-emerald-500',
@@ -16,6 +17,7 @@ const CLASS_CONFIG = [
     id: 1,
     key: 'less_damaged',
     label: 'LESS DAMAGED',
+    pitchLabel: 'Low Risk',
     scientific: 'Mild Heatwave Damage',
     color: '#eab308',
     bg: 'bg-amber-500',
@@ -27,6 +29,7 @@ const CLASS_CONFIG = [
     id: 2,
     key: 'moderately_damaged',
     label: 'MODERATELY DAMAGED',
+    pitchLabel: 'Medium Risk',
     scientific: 'Moderate Heatwave Damage',
     color: '#f97316',
     bg: 'bg-orange-500',
@@ -38,6 +41,7 @@ const CLASS_CONFIG = [
     id: 3,
     key: 'severely_damaged',
     label: 'SEVERELY DAMAGED',
+    pitchLabel: 'High Risk',
     scientific: 'Severe Heatwave Damage',
     color: '#dc2626',
     bg: 'bg-rose-600',
@@ -47,7 +51,7 @@ const CLASS_CONFIG = [
   }
 ];
 
-export default function ProbabilityBar({ probabilities, predictedClassId }) {
+export default function ProbabilityBar({ probabilities, predictedClassId, pitchMode }) {
   if (!probabilities) return null;
 
   return (
@@ -71,11 +75,11 @@ export default function ProbabilityBar({ probabilities, predictedClassId }) {
                   style={{ backgroundColor: cls.color }}
                 />
                 <span className={`font-semibold ${isPredicted ? 'text-slate-900' : 'text-slate-700'}`}>
-                  {cls.label}
+                  {pitchMode ? cls.pitchLabel : cls.label}
                 </span>
                 {isPredicted && (
                   <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white px-1.5 py-0.5 rounded">
-                    Predicted Class
+                    {pitchMode ? 'Result' : 'Predicted Class'}
                   </span>
                 )}
               </div>
@@ -90,17 +94,21 @@ export default function ProbabilityBar({ probabilities, predictedClassId }) {
               />
             </div>
 
-            <div className="flex justify-between items-center mt-1 text-[11px] text-slate-400">
-              <span>{cls.scientific}</span>
-              <span>p = {prob.toFixed(4)}</span>
-            </div>
+            {!pitchMode && (
+              <div className="flex justify-between items-center mt-1 text-[11px] text-slate-400">
+                <span>{cls.scientific}</span>
+                <span>p = {prob.toFixed(4)}</span>
+              </div>
+            )}
           </div>
         );
       })}
 
-      <p className="text-[11px] text-slate-500 italic text-center mt-2">
-        Note: These scores represent ExtraTrees model output probabilities across 89 satellite & meteorological features.
-      </p>
+      {!pitchMode && (
+        <p className="text-[11px] text-slate-500 italic text-center mt-2">
+          Note: These scores represent ExtraTrees model output probabilities across 89 satellite & meteorological features.
+        </p>
+      )}
     </div>
   );
 }

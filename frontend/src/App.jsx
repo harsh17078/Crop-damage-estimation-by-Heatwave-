@@ -11,6 +11,7 @@ import { getHealth } from './api';
 export default function App() {
   const [activeTab, setActiveTab] = useState('overview');
   const [geeConnected, setGeeConnected] = useState(false);
+  const [pitchMode, setPitchMode] = useState(true);
 
   useEffect(() => {
     getHealth()
@@ -24,6 +25,13 @@ export default function App() {
       });
   }, []);
 
+  // If pitch mode is toggled on and user is on a hidden tab, redirect to overview
+  useEffect(() => {
+    if (pitchMode && (activeTab === 'performance' || activeTab === 'history')) {
+      setActiveTab('overview');
+    }
+  }, [pitchMode, activeTab]);
+
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col text-slate-800">
       {/* Top Navbar */}
@@ -31,22 +39,24 @@ export default function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         geeStatus={geeConnected}
+        pitchMode={pitchMode}
+        setPitchMode={setPitchMode}
       />
 
       {/* Main Content Area */}
       <main className="flex-1">
         {activeTab === 'overview' && (
-          <Overview onStartAnalysis={() => setActiveTab('predict')} />
+          <Overview onStartAnalysis={() => setActiveTab('predict')} pitchMode={pitchMode} />
         )}
-        {activeTab === 'predict' && <Predict />}
-        {activeTab === 'district' && <DistrictAnalysis />}
-        {activeTab === 'historical' && <HistoricalAnalysis />}
-        {activeTab === 'performance' && <ModelPerformance />}
-        {activeTab === 'history' && <PredictionHistory />}
+        {activeTab === 'predict' && <Predict pitchMode={pitchMode} />}
+        {activeTab === 'district' && <DistrictAnalysis pitchMode={pitchMode} />}
+        {activeTab === 'historical' && <HistoricalAnalysis pitchMode={pitchMode} />}
+        {!pitchMode && activeTab === 'performance' && <ModelPerformance />}
+        {!pitchMode && activeTab === 'history' && <PredictionHistory />}
       </main>
 
       {/* Academic & Research Footer */}
-      <footer className="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-12">
+      <footer className="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-12 print:hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
