@@ -1,0 +1,9 @@
+feature,spearman_rho_with_damage,p_value
+inter_heat_persistence,0.8337,1.3072938129882136e-211
+inter_tmax_solar,0.7568,4.181200601735663e-152
+inter_lst_vpd,0.6658,2.198892770586182e-105
+inter_lst_ndmi_deficit,0.5676,1.3731461941188955e-70
+inter_dtr_sm,0.5319,1.2399756131841687e-60
+canopy_senescence_rate,0.4082,5.015089507427397e-34
+pre_vigor_ratio,0.1537,1.057604896885172e-05
+inter_sm_buffer,-0.8048,3.734594722990237e-186

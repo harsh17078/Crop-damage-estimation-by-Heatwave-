@@ -1,0 +1,7 @@
+Model,Accuracy,Balanced_Accuracy,Cohen_Kappa,Macro_F1,Weighted_F1,ROC_AUC_OvR,Severe_Recall,Severe_Mod_FN_Rate
+LogisticRegression (Balanced),0.7748,0.5818,0.5986,0.59,0.7636,0.8999,0.4,0.0392
+ExtraTrees (Balanced),0.7748,0.5789,0.5944,0.5884,0.7569,0.9055,0.45,0.0392
+RandomForest (Balanced),0.7432,0.5003,0.5358,0.4897,0.7141,0.9145,0.2,0.0392
+HistGradientBoosting,0.7477,0.4971,0.5377,0.487,0.7141,0.8717,0.2,0.0588
+GradientBoosting,0.7387,0.4647,0.5201,0.4314,0.6923,0.8806,0.1,0.0392
+Dummy (Stratified),0.3829,0.2088,-0.0656,0.1947,0.3764,0.4705,0.05,0.6667

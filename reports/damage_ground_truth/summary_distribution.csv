@@ -1,0 +1,5 @@
+damage_class_name,Count,Overall_Share,Train_Count (<2019),Test_Count (>=2019)
+No Significant Heatwave Damage,454,55.77,319,135
+Mild Heatwave Damage,225,27.64,189,36
+Moderate Heatwave Damage,77,9.46,46,31
+Severe Heatwave Damage,58,7.13,38,20

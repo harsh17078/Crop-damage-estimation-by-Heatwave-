@@ -1,0 +1,8 @@
+Target,Model,Split,n,RMSE,MAE,R2,R2_within_year,Spearman,Skill_vs_Baseline
+Tmax_Mean_Window (degC),ExtraTrees,TEST (>=2019),222,0.7648,0.5825,0.9024,0.8457,0.9565,0.8706
+Tmax_Mean_Window (degC),HistGradientBoosting,TEST (>=2019),222,0.7942,0.6432,0.8948,0.8407,0.9654,0.8605
+Tmax_Mean_Window (degC),RandomForest,TEST (>=2019),222,0.8231,0.6564,0.887,0.8288,0.9507,0.8502
+Tmax_Mean_Window (degC),ElasticNet,TEST (>=2019),222,1.0395,0.8288,0.8197,0.7957,0.9323,0.761
+Tmax_Mean_Window (degC),Ridge,TEST (>=2019),222,1.1069,0.8574,0.7956,0.8194,0.9311,0.729
+Tmax_Mean_Window (degC),OLS (sat_lst_day_p90),TEST (>=2019),222,1.4749,1.2001,0.6371,0.6787,0.795,0.5189
+Tmax_Mean_Window (degC),Baseline (Clim/Zero),TEST (>=2019),222,2.1264,1.9047,0.2456,0.8196,0.5305,0.0

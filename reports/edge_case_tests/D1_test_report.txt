@@ -1,0 +1,42 @@
+========================================================================
+D1: EDGE-CASE TESTING REPORT
+========================================================================
+
+MODEL UNDER TEST:
+  Exposure Model  : ExtraTreesRegressor
+  Classifier      : ExtraTreesClassifier (Balanced)
+  Test Accuracy   : 0.7748
+  ROC-AUC OvR     : 0.9055
+
+EDGE-CASE SUMMARY:
+  A (Missing Data)                   : 24 total | PASS=24 WARN=0 FAIL=0
+  B (Extreme Weather)                : 20 total | PASS=20 WARN=0 FAIL=0
+  C (Satellite Edge)                 : 20 total | PASS=20 WARN=0 FAIL=0
+  D (Consistency)                    : 8 total | PASS=6 WARN=2 FAIL=0
+  E (Generalization)                 : 16 total | PASS=16 WARN=0 FAIL=0
+
+  Crashes          : 0
+  NaN outputs      : 0
+  Inf outputs      : 0
+  OOD flagged      : 86 / 88
+  OOD threshold    : 53.72
+
+CONSISTENCY AUDIT (Category D):
+  D01 | Heat damage: High Tmax + Low SM + Declining NDVI   | Expected [2-3] | Got 1 (LESS DAMAGED) | WARN
+  D02 | Buffered: High Tmax + Sufficient SM + Stable NDVI  | Expected [0-1] | Got 1 (LESS DAMAGED) | PASS
+  D03 | Non-heat decline: Normal Tmax + Low NDVI           | Expected [0-1] | Got 0 (NOT DAMAGED) | PASS
+  D04 | Baseline: Normal temperature + healthy vegetation  | Expected [0-0] | Got 0 (NOT DAMAGED) | PASS
+  D05 | Heat + healthy vegetation: possible irrigation buf | Expected [0-1] | Got 1 (LESS DAMAGED) | PASS
+  D06 | Cold season + declining NDVI (not heatwave)        | Expected [0-1] | Got 0 (NOT DAMAGED) | PASS
+  D07 | Severe heatwave + NO vegetation decline (irrigated | Expected [0-2] | Got 3 (SEVERELY DAMAGED) | WARN
+  D08 | Mild heatwave + significant NDVI decline (possibly | Expected [0-2] | Got 1 (LESS DAMAGED) | PASS
+
+FAILURES & WARNINGS:
+  [WARN] D01 | Heat damage: High Tmax + Low SM + Declining N | nan
+  [WARN] D07 | Severe heatwave + NO vegetation decline (irri | nan
+
+OUTPUT FILES:
+  reports/edge_case_tests/edge_case_results.csv
+  reports/edge_case_tests/edge_case_summary.csv
+  reports/edge_case_tests/consistency_audit.csv
+  reports/edge_case_tests/ood_scores.csv

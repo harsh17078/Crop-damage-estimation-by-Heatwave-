@@ -1,0 +1,7 @@
+Domain,Objective,Model_Type,Test_RMSE,Test_MAE,Test_R2,Within_Year_R2,Spearman_rho,Skill_vs_Baseline,Verdict,Accuracy,Balanced_Accuracy,Macro_F1,Weighted_F1,ROC_AUC_OvR,Severe_Recall,Severe_Mod_FN_Rate
+Regression,Terminal Heat Exposure (tmax_mean_W),Original Baseline (Climatology),2.1264,1.9047,0.2456,0.8196,0.5305,0.0,Baseline,,,,,,,
+Regression,Terminal Heat Exposure (tmax_mean_W),Original Single-Feature (OLS p90),1.4749,1.2001,0.6371,0.6787,0.795,0.5189,Sub-optimal,,,,,,,
+Regression,Terminal Heat Exposure (tmax_mean_W),Improved Production (ExtraTrees Regressor),0.7648,0.5825,0.9024,0.8457,0.9565,0.8706,"CHAMPION (Massive 48.1% RMSE reduction vs OLS, R2 > 0.90)",,,,,,,
+Classification,Heatwave Crop Damage Classification,Original Proxy Classifier (A3 SVM S_dndvi),,,,,,,"FAILED / NO SKILL (Negative lift, 0% recall in 2021)",0.38,0.407,0.04,0.206,0.147,0.0,0.95
+Classification,Heatwave Crop Damage Classification,Improved Production (Balanced Logistic Regression),,,,,,,"CHAMPION LINEAR (0% severe cases called undamaged, 95% AUC)",0.7748,0.5818,0.59,0.7636,0.8999,0.4,0.0392
+Classification,Heatwave Crop Damage Classification,Improved Production (Balanced ExtraTrees Classifier),,,,,,,"CHAMPION ENSEMBLE (Highest ROC-AUC 0.9055, 45% severe recall)",0.7748,0.5789,0.5884,0.7569,0.9055,0.45,0.0392

@@ -1,0 +1,25 @@
+Model,Class_ID,Class_Name,Support,Precision,Recall,F1
+Dummy (Stratified),0,No Significant Damage,135,0.5758,0.563,0.5693
+Dummy (Stratified),1,Mild Damage,36,0.1212,0.2222,0.1569
+Dummy (Stratified),2,Moderate Damage,31,0.0,0.0,0.0
+Dummy (Stratified),3,Severe Damage,20,0.0556,0.05,0.0526
+LogisticRegression (Balanced),0,No Significant Damage,135,0.9291,0.9704,0.9493
+LogisticRegression (Balanced),1,Mild Damage,36,0.5333,0.6667,0.5926
+LogisticRegression (Balanced),2,Moderate Damage,31,0.3913,0.2903,0.3333
+LogisticRegression (Balanced),3,Severe Damage,20,0.6154,0.4,0.4848
+RandomForest (Balanced),0,No Significant Damage,135,0.9231,0.9778,0.9496
+RandomForest (Balanced),1,Mild Damage,36,0.3731,0.6944,0.4854
+RandomForest (Balanced),2,Moderate Damage,31,0.6667,0.129,0.2162
+RandomForest (Balanced),3,Severe Damage,20,0.6667,0.2,0.3077
+ExtraTrees (Balanced),0,No Significant Damage,135,0.9231,0.9778,0.9496
+ExtraTrees (Balanced),1,Mild Damage,36,0.4386,0.6944,0.5376
+ExtraTrees (Balanced),2,Moderate Damage,31,0.5455,0.1935,0.2857
+ExtraTrees (Balanced),3,Severe Damage,20,0.8182,0.45,0.5806
+HistGradientBoosting,0,No Significant Damage,135,0.9116,0.9926,0.9504
+HistGradientBoosting,1,Mild Damage,36,0.3871,0.6667,0.4898
+HistGradientBoosting,2,Moderate Damage,31,0.8,0.129,0.2222
+HistGradientBoosting,3,Severe Damage,20,0.5,0.2,0.2857
+GradientBoosting,0,No Significant Damage,135,0.9184,1.0,0.9574
+GradientBoosting,1,Mild Damage,36,0.3788,0.6944,0.4902
+GradientBoosting,2,Moderate Damage,31,0.4,0.0645,0.1111
+GradientBoosting,3,Severe Damage,20,0.5,0.1,0.1667

@@ -1,0 +1,630 @@
+model,Year,District,State,obs,pred
+ols_p90,2008,Ambala,Haryana,0.0,3.0811731228792025
+ols_p90,2008,Bhiwani,Haryana,7.0,7.410264755088294
+ols_p90,2008,Fatehabad,Haryana,1.0,0.47794735108485753
+ols_p90,2008,Hisar,Haryana,2.0,3.5040942246981706
+ols_p90,2008,Jhajjar,Haryana,2.0,4.322164767153532
+ols_p90,2008,Jind,Haryana,0.0,0.40465713476690324
+ols_p90,2008,Kaithal,Haryana,0.0,0.0
+ols_p90,2008,Karnal,Haryana,0.0,0.0
+ols_p90,2008,Kurukshetra,Haryana,1.0,0.33136490851208666
+ols_p90,2008,Panipat,Haryana,1.0,0.6192953554107437
+ols_p90,2008,Rohtak,Haryana,1.0,2.760820965223284
+ols_p90,2008,Sirsa,Haryana,2.0,2.3278572819113763
+ols_p90,2008,Sonipat,Haryana,1.0,1.494027760660475
+ols_p90,2008,Yamunanagar,Haryana,0.0,3.12610533493204
+ols_p90,2008,Amritsar,Punjab,0.0,0.0
+ols_p90,2008,Bathinda,Punjab,2.0,0.8994723036101839
+ols_p90,2008,Faridkot,Punjab,0.0,0.0
+ols_p90,2008,Ferozepur,Punjab,0.0,0.0
+ols_p90,2008,Gurdaspur,Punjab,0.0,0.0
+ols_p90,2008,Jalandhar,Punjab,1.0,0.45103281817335894
+ols_p90,2008,Kapurthala,Punjab,0.0,0.0
+ols_p90,2008,Ludhiana,Punjab,3.0,0.0
+ols_p90,2008,Mansa,Punjab,1.0,0.2470530442702401
+ols_p90,2008,Moga,Punjab,2.0,0.0
+ols_p90,2008,Patiala,Punjab,1.0,0.8310433636926273
+ols_p90,2008,Sangrur,Punjab,1.0,0.0
+ols_p90,2008,Sri Muktsar Sahib,Punjab,1.0,0.0
+ols_p90,2008,Aligarh,Uttar Pradesh,1.0,3.1169998702632005
+ols_p90,2008,Budaun,Uttar Pradesh,1.0,3.4814661738224304
+ols_p90,2008,Bulandshahr,Uttar Pradesh,1.0,1.346194165555879
+ols_p90,2008,Etah,Uttar Pradesh,2.0,4.402435661677459
+ols_p90,2008,Etawah,Uttar Pradesh,4.0,7.2466374216597815
+ols_p90,2008,Hardoi,Uttar Pradesh,1.0,4.404107681445919
+ols_p90,2008,Kanpur Nagar,Uttar Pradesh,10.0,6.965096331545572
+ols_p90,2008,Meerut,Uttar Pradesh,1.0,2.9065714782364482
+ols_p90,2008,Muzaffarnagar,Uttar Pradesh,1.0,2.6028781024758505
+ols_p90,2008,Saharanpur,Uttar Pradesh,0.0,3.2592829259844875
+ols_p90,2009,Ambala,Haryana,0.0,2.5094686613768307
+ols_p90,2009,Bhiwani,Haryana,2.0,7.4078849898465045
+ols_p90,2009,Fatehabad,Haryana,0.0,2.891814588588078
+ols_p90,2009,Hisar,Haryana,0.0,3.339552300283711
+ols_p90,2009,Jhajjar,Haryana,0.0,4.153599731695234
+ols_p90,2009,Jind,Haryana,0.0,2.63155840169029
+ols_p90,2009,Kaithal,Haryana,0.0,1.7653792233325838
+ols_p90,2009,Karnal,Haryana,0.0,0.0
+ols_p90,2009,Kurukshetra,Haryana,0.0,0.0
+ols_p90,2009,Panipat,Haryana,1.0,1.9978329043648868
+ols_p90,2009,Rohtak,Haryana,0.0,1.1461677524177625
+ols_p90,2009,Sirsa,Haryana,1.0,3.943280248480736
+ols_p90,2009,Sonipat,Haryana,1.0,1.4480849317017923
+ols_p90,2009,Yamunanagar,Haryana,0.0,2.6419904788118633
+ols_p90,2009,Amritsar,Punjab,0.0,1.4137320229422246
+ols_p90,2009,Bathinda,Punjab,1.0,5.092756210539337
+ols_p90,2009,Faridkot,Punjab,0.0,2.373767965663024
+ols_p90,2009,Ferozepur,Punjab,0.0,3.007456113769649
+ols_p90,2009,Gurdaspur,Punjab,0.0,0.8384057087642502
+ols_p90,2009,Jalandhar,Punjab,0.0,1.3909634633491486
+ols_p90,2009,Kapurthala,Punjab,0.0,1.6960738015009795
+ols_p90,2009,Ludhiana,Punjab,0.0,0.0
+ols_p90,2009,Mansa,Punjab,0.0,3.9302381311368126
+ols_p90,2009,Moga,Punjab,0.0,0.22447456277481104
+ols_p90,2009,Patiala,Punjab,0.0,0.9172097365510616
+ols_p90,2009,Sangrur,Punjab,0.0,1.008828350545822
+ols_p90,2009,Sri Muktsar Sahib,Punjab,0.0,3.0193428370912296
+ols_p90,2009,Aligarh,Uttar Pradesh,1.0,3.7050515820398657
+ols_p90,2009,Budaun,Uttar Pradesh,3.0,4.460181285009397
+ols_p90,2009,Bulandshahr,Uttar Pradesh,3.0,3.3437238783268803
+ols_p90,2009,Etah,Uttar Pradesh,2.0,5.540926248064913
+ols_p90,2009,Etawah,Uttar Pradesh,0.0,5.50282652294643
+ols_p90,2009,Hardoi,Uttar Pradesh,0.0,4.474725444750825
+ols_p90,2009,Kanpur Nagar,Uttar Pradesh,2.0,7.43836788792664
+ols_p90,2009,Meerut,Uttar Pradesh,3.0,3.6331324509585308
+ols_p90,2009,Muzaffarnagar,Uttar Pradesh,2.0,4.565675415396639
+ols_p90,2009,Saharanpur,Uttar Pradesh,0.0,3.889653727158309
+ols_p90,2010,Ambala,Haryana,11.0,5.29119381710237
+ols_p90,2010,Bhiwani,Haryana,14.0,12.336640765733144
+ols_p90,2010,Fatehabad,Haryana,20.0,6.970654706956411
+ols_p90,2010,Hisar,Haryana,19.0,7.879022313242747
+ols_p90,2010,Jhajjar,Haryana,4.0,5.981063838499622
+ols_p90,2010,Jind,Haryana,18.0,5.684406346666297
+ols_p90,2010,Kaithal,Haryana,14.0,5.039178640389545
+ols_p90,2010,Karnal,Haryana,7.0,1.7022220769648997
+ols_p90,2010,Kurukshetra,Haryana,7.0,1.7482718169654725
+ols_p90,2010,Panipat,Haryana,14.0,4.838962617671436
+ols_p90,2010,Rohtak,Haryana,12.0,6.859224154225252
+ols_p90,2010,Sirsa,Haryana,21.0,9.876588043342997
+ols_p90,2010,Sonipat,Haryana,14.0,5.851743888467657
+ols_p90,2010,Yamunanagar,Haryana,10.0,4.606330889189528
+ols_p90,2010,Amritsar,Punjab,15.0,2.2180955557413453
+ols_p90,2010,Bathinda,Punjab,24.0,11.53348153232903
+ols_p90,2010,Faridkot,Punjab,15.0,4.372529359723195
+ols_p90,2010,Ferozepur,Punjab,18.0,6.931261988094727
+ols_p90,2010,Gurdaspur,Punjab,3.0,3.17453341080692
+ols_p90,2010,Jalandhar,Punjab,12.0,3.663223130742744
+ols_p90,2010,Kapurthala,Punjab,13.0,3.0325782892591855
+ols_p90,2010,Ludhiana,Punjab,12.0,2.77179770011172
+ols_p90,2010,Mansa,Punjab,22.0,8.905178090670226
+ols_p90,2010,Moga,Punjab,13.0,2.4455590764584842
+ols_p90,2010,Patiala,Punjab,13.0,4.164848696972192
+ols_p90,2010,Sangrur,Punjab,15.0,3.446472108596178
+ols_p90,2010,Sri Muktsar Sahib,Punjab,22.0,8.253100007580166
+ols_p90,2010,Aligarh,Uttar Pradesh,14.0,8.402642144275049
+ols_p90,2010,Budaun,Uttar Pradesh,15.0,7.805490764443645
+ols_p90,2010,Bulandshahr,Uttar Pradesh,20.0,7.753436426677217
+ols_p90,2010,Etah,Uttar Pradesh,15.0,9.292387220522441
+ols_p90,2010,Etawah,Uttar Pradesh,8.0,9.48984270320239
+ols_p90,2010,Hardoi,Uttar Pradesh,9.0,8.716520720554069
+ols_p90,2010,Kanpur Nagar,Uttar Pradesh,14.0,10.96052995922635
+ols_p90,2010,Meerut,Uttar Pradesh,19.0,6.71503433785527
+ols_p90,2010,Muzaffarnagar,Uttar Pradesh,20.0,7.594715012151932
+ols_p90,2010,Saharanpur,Uttar Pradesh,15.0,6.595029777031096
+ols_p90,2011,Ambala,Haryana,0.0,2.866443984618689
+ols_p90,2011,Bhiwani,Haryana,6.0,8.94983162008667
+ols_p90,2011,Fatehabad,Haryana,2.0,2.310065969899737
+ols_p90,2011,Hisar,Haryana,4.0,4.068154013859536
+ols_p90,2011,Jhajjar,Haryana,1.0,2.4360639176200647
+ols_p90,2011,Jind,Haryana,1.0,1.1732105807316051
+ols_p90,2011,Kaithal,Haryana,0.0,0.5817099636686667
+ols_p90,2011,Karnal,Haryana,0.0,0.0
+ols_p90,2011,Kurukshetra,Haryana,0.0,0.2142480784158609
+ols_p90,2011,Panipat,Haryana,0.0,1.1210377219623844
+ols_p90,2011,Rohtak,Haryana,2.0,2.0304002653214526
+ols_p90,2011,Sirsa,Haryana,3.0,4.352667980121038
+ols_p90,2011,Sonipat,Haryana,2.0,1.946408236452859
+ols_p90,2011,Yamunanagar,Haryana,0.0,1.9911635434559285
+ols_p90,2011,Amritsar,Punjab,0.0,0.0
+ols_p90,2011,Bathinda,Punjab,2.0,3.863657661909325
+ols_p90,2011,Faridkot,Punjab,2.0,0.0
+ols_p90,2011,Ferozepur,Punjab,2.0,0.9282673351718778
+ols_p90,2011,Gurdaspur,Punjab,0.0,0.0
+ols_p90,2011,Jalandhar,Punjab,0.0,1.730029001523659
+ols_p90,2011,Kapurthala,Punjab,0.0,0.6173444057759818
+ols_p90,2011,Ludhiana,Punjab,0.0,0.0
+ols_p90,2011,Mansa,Punjab,2.0,2.3209250706577205
+ols_p90,2011,Moga,Punjab,1.0,0.0
+ols_p90,2011,Patiala,Punjab,0.0,0.4981250363498164
+ols_p90,2011,Sangrur,Punjab,0.0,0.0
+ols_p90,2011,Sri Muktsar Sahib,Punjab,2.0,1.8238578665004193
+ols_p90,2011,Aligarh,Uttar Pradesh,1.0,3.7495193652802725
+ols_p90,2011,Budaun,Uttar Pradesh,1.0,3.14283487765669
+ols_p90,2011,Bulandshahr,Uttar Pradesh,1.0,2.7861098108656597
+ols_p90,2011,Etah,Uttar Pradesh,1.0,4.349798721597011
+ols_p90,2011,Etawah,Uttar Pradesh,4.0,5.885271149066242
+ols_p90,2011,Hardoi,Uttar Pradesh,2.0,4.784994680885996
+ols_p90,2011,Kanpur Nagar,Uttar Pradesh,7.0,9.159840239138267
+ols_p90,2011,Meerut,Uttar Pradesh,1.0,3.1968435895460035
+ols_p90,2011,Muzaffarnagar,Uttar Pradesh,1.0,2.3243441629848838
+ols_p90,2011,Saharanpur,Uttar Pradesh,0.0,2.3541125183656546
+ols_p90,2012,Ambala,Haryana,0.0,1.213690408392492
+ols_p90,2012,Bhiwani,Haryana,3.0,5.51945144490656
+ols_p90,2012,Fatehabad,Haryana,8.0,3.2077611574506304
+ols_p90,2012,Hisar,Haryana,8.0,6.83067262030972
+ols_p90,2012,Jhajjar,Haryana,1.0,0.04377867079902664
+ols_p90,2012,Jind,Haryana,4.0,2.9551371318123043
+ols_p90,2012,Kaithal,Haryana,2.0,0.6268648478961474
+ols_p90,2012,Karnal,Haryana,0.0,0.0
+ols_p90,2012,Kurukshetra,Haryana,0.0,0.0
+ols_p90,2012,Panipat,Haryana,1.0,0.6836198763383559
+ols_p90,2012,Rohtak,Haryana,1.0,0.0
+ols_p90,2012,Sirsa,Haryana,10.0,4.90510863380236
+ols_p90,2012,Sonipat,Haryana,0.0,0.5239780111109136
+ols_p90,2012,Yamunanagar,Haryana,0.0,1.492084221574569
+ols_p90,2012,Amritsar,Punjab,1.0,1.0315000766032938
+ols_p90,2012,Bathinda,Punjab,10.0,2.777427866385742
+ols_p90,2012,Faridkot,Punjab,5.0,0.5267437130990178
+ols_p90,2012,Ferozepur,Punjab,7.0,2.4780212871299216
+ols_p90,2012,Gurdaspur,Punjab,0.0,1.7384286928204369
+ols_p90,2012,Jalandhar,Punjab,1.0,0.0
+ols_p90,2012,Kapurthala,Punjab,2.0,0.0
+ols_p90,2012,Ludhiana,Punjab,0.0,0.0
+ols_p90,2012,Mansa,Punjab,9.0,2.8798578566986164
+ols_p90,2012,Moga,Punjab,2.0,0.0
+ols_p90,2012,Patiala,Punjab,0.0,0.0
+ols_p90,2012,Sangrur,Punjab,2.0,0.0
+ols_p90,2012,Sri Muktsar Sahib,Punjab,9.0,2.1465319883963274
+ols_p90,2012,Aligarh,Uttar Pradesh,1.0,3.708650589967365
+ols_p90,2012,Budaun,Uttar Pradesh,4.0,4.7680946093198875
+ols_p90,2012,Bulandshahr,Uttar Pradesh,6.0,6.8455871931168035
+ols_p90,2012,Etah,Uttar Pradesh,3.0,4.720305579931454
+ols_p90,2012,Etawah,Uttar Pradesh,2.0,3.919354707421757
+ols_p90,2012,Hardoi,Uttar Pradesh,2.0,2.582962355417239
+ols_p90,2012,Kanpur Nagar,Uttar Pradesh,5.0,6.0158887478948975
+ols_p90,2012,Meerut,Uttar Pradesh,6.0,5.678925282765774
+ols_p90,2012,Muzaffarnagar,Uttar Pradesh,7.0,4.94575021540025
+ols_p90,2012,Saharanpur,Uttar Pradesh,1.0,4.656110581596256
+ols_p90,2013,Ambala,Haryana,0.0,0.0
+ols_p90,2013,Bhiwani,Haryana,0.0,6.641040695863213
+ols_p90,2013,Fatehabad,Haryana,2.0,4.373143911055666
+ols_p90,2013,Hisar,Haryana,1.0,6.266180065341071
+ols_p90,2013,Jhajjar,Haryana,0.0,0.0
+ols_p90,2013,Jind,Haryana,0.0,2.9523282620029896
+ols_p90,2013,Kaithal,Haryana,0.0,1.3652036813114452
+ols_p90,2013,Karnal,Haryana,0.0,0.0
+ols_p90,2013,Kurukshetra,Haryana,0.0,0.0
+ols_p90,2013,Panipat,Haryana,0.0,1.5608429898358618
+ols_p90,2013,Rohtak,Haryana,0.0,0.8601536601336335
+ols_p90,2013,Sirsa,Haryana,3.0,6.318051206377451
+ols_p90,2013,Sonipat,Haryana,0.0,1.4917358672280896
+ols_p90,2013,Yamunanagar,Haryana,0.0,0.0
+ols_p90,2013,Amritsar,Punjab,0.0,0.592689680405996
+ols_p90,2013,Bathinda,Punjab,2.0,5.08962576274004
+ols_p90,2013,Faridkot,Punjab,0.0,2.1636953480270487
+ols_p90,2013,Ferozepur,Punjab,1.0,3.157397754573741
+ols_p90,2013,Gurdaspur,Punjab,0.0,1.3130908457522632
+ols_p90,2013,Jalandhar,Punjab,0.0,0.0
+ols_p90,2013,Kapurthala,Punjab,0.0,0.0
+ols_p90,2013,Ludhiana,Punjab,0.0,0.0
+ols_p90,2013,Mansa,Punjab,1.0,4.426946765921833
+ols_p90,2013,Moga,Punjab,0.0,0.0
+ols_p90,2013,Patiala,Punjab,0.0,0.0
+ols_p90,2013,Sangrur,Punjab,0.0,0.0
+ols_p90,2013,Sri Muktsar Sahib,Punjab,2.0,3.2130576201917798
+ols_p90,2013,Aligarh,Uttar Pradesh,0.0,5.468525644932506
+ols_p90,2013,Budaun,Uttar Pradesh,0.0,5.808262032463622
+ols_p90,2013,Bulandshahr,Uttar Pradesh,2.0,5.791327479405748
+ols_p90,2013,Etah,Uttar Pradesh,0.0,6.779392896117702
+ols_p90,2013,Etawah,Uttar Pradesh,0.0,4.383177412824137
+ols_p90,2013,Hardoi,Uttar Pradesh,0.0,4.225488270680262
+ols_p90,2013,Kanpur Nagar,Uttar Pradesh,1.0,6.829212503425842
+ols_p90,2013,Meerut,Uttar Pradesh,2.0,5.0997096482717135
+ols_p90,2013,Muzaffarnagar,Uttar Pradesh,3.0,4.808524128106271
+ols_p90,2013,Saharanpur,Uttar Pradesh,0.0,3.662876223776074
+ols_p90,2014,Ambala,Haryana,0.0,0.0
+ols_p90,2014,Bhiwani,Haryana,0.0,1.850498167162602
+ols_p90,2014,Fatehabad,Haryana,1.0,2.173543560872961
+ols_p90,2014,Hisar,Haryana,1.0,4.666929318824106
+ols_p90,2014,Jhajjar,Haryana,0.0,0.0
+ols_p90,2014,Jind,Haryana,1.0,1.1808848377924206
+ols_p90,2014,Kaithal,Haryana,0.0,0.7903508176516914
+ols_p90,2014,Karnal,Haryana,0.0,0.0
+ols_p90,2014,Kurukshetra,Haryana,0.0,0.0
+ols_p90,2014,Panipat,Haryana,0.0,0.0
+ols_p90,2014,Rohtak,Haryana,0.0,0.0
+ols_p90,2014,Sirsa,Haryana,1.0,3.7652599123352837
+ols_p90,2014,Sonipat,Haryana,0.0,0.0
+ols_p90,2014,Yamunanagar,Haryana,0.0,0.0
+ols_p90,2014,Amritsar,Punjab,0.0,0.0
+ols_p90,2014,Bathinda,Punjab,1.0,2.1870797113622014
+ols_p90,2014,Faridkot,Punjab,0.0,0.0
+ols_p90,2014,Ferozepur,Punjab,0.0,0.6147122066789028
+ols_p90,2014,Gurdaspur,Punjab,0.0,0.0
+ols_p90,2014,Jalandhar,Punjab,0.0,0.0
+ols_p90,2014,Kapurthala,Punjab,0.0,0.0
+ols_p90,2014,Ludhiana,Punjab,0.0,0.0
+ols_p90,2014,Mansa,Punjab,1.0,2.0003727098781363
+ols_p90,2014,Moga,Punjab,0.0,0.0
+ols_p90,2014,Patiala,Punjab,0.0,0.0
+ols_p90,2014,Sangrur,Punjab,0.0,0.0
+ols_p90,2014,Sri Muktsar Sahib,Punjab,0.0,1.0738606231750065
+ols_p90,2014,Aligarh,Uttar Pradesh,0.0,2.323050499759307
+ols_p90,2014,Budaun,Uttar Pradesh,0.0,3.6176874018590253
+ols_p90,2014,Bulandshahr,Uttar Pradesh,2.0,4.902354077602156
+ols_p90,2014,Etah,Uttar Pradesh,0.0,4.254357227452019
+ols_p90,2014,Etawah,Uttar Pradesh,0.0,3.2815319770385307
+ols_p90,2014,Hardoi,Uttar Pradesh,0.0,4.205747307603904
+ols_p90,2014,Kanpur Nagar,Uttar Pradesh,1.0,6.69687879293274
+ols_p90,2014,Meerut,Uttar Pradesh,1.0,3.038737624300283
+ols_p90,2014,Muzaffarnagar,Uttar Pradesh,0.0,3.568547467524889
+ols_p90,2014,Saharanpur,Uttar Pradesh,0.0,1.7038713787481585
+ols_p90,2015,Ambala,Haryana,0.0,0.8802746845509497
+ols_p90,2015,Bhiwani,Haryana,5.0,5.890714205176529
+ols_p90,2015,Fatehabad,Haryana,0.0,1.1377620822147123
+ols_p90,2015,Hisar,Haryana,1.0,3.0877676545284243
+ols_p90,2015,Jhajjar,Haryana,0.0,0.44419809088594686
+ols_p90,2015,Jind,Haryana,0.0,1.972362954972598
+ols_p90,2015,Kaithal,Haryana,0.0,1.4501638232586904
+ols_p90,2015,Karnal,Haryana,0.0,0.0
+ols_p90,2015,Kurukshetra,Haryana,0.0,0.0
+ols_p90,2015,Panipat,Haryana,0.0,2.7342544814026954
+ols_p90,2015,Rohtak,Haryana,1.0,3.620544117949615
+ols_p90,2015,Sirsa,Haryana,2.0,1.201981810638904
+ols_p90,2015,Sonipat,Haryana,0.0,3.2372217260870864
+ols_p90,2015,Yamunanagar,Haryana,0.0,0.6633454243171366
+ols_p90,2015,Amritsar,Punjab,0.0,0.0
+ols_p90,2015,Bathinda,Punjab,0.0,2.7819136193362506
+ols_p90,2015,Faridkot,Punjab,0.0,0.0
+ols_p90,2015,Ferozepur,Punjab,0.0,0.6442800683752585
+ols_p90,2015,Gurdaspur,Punjab,0.0,0.0
+ols_p90,2015,Jalandhar,Punjab,0.0,0.2970865636616207
+ols_p90,2015,Kapurthala,Punjab,0.0,0.0
+ols_p90,2015,Ludhiana,Punjab,0.0,0.3688675443750622
+ols_p90,2015,Mansa,Punjab,0.0,1.578836572749255
+ols_p90,2015,Moga,Punjab,0.0,0.0
+ols_p90,2015,Patiala,Punjab,0.0,1.0767480557686802
+ols_p90,2015,Sangrur,Punjab,0.0,0.5309592525254021
+ols_p90,2015,Sri Muktsar Sahib,Punjab,0.0,0.8645079521560697
+ols_p90,2015,Aligarh,Uttar Pradesh,0.0,5.753586667724113
+ols_p90,2015,Budaun,Uttar Pradesh,0.0,5.877093738369562
+ols_p90,2015,Bulandshahr,Uttar Pradesh,0.0,4.385730211715991
+ols_p90,2015,Etah,Uttar Pradesh,4.0,6.374501213497648
+ols_p90,2015,Etawah,Uttar Pradesh,2.0,4.589908801376162
+ols_p90,2015,Hardoi,Uttar Pradesh,0.0,7.384408928682063
+ols_p90,2015,Kanpur Nagar,Uttar Pradesh,5.0,8.267240337534114
+ols_p90,2015,Meerut,Uttar Pradesh,0.0,3.470355972607954
+ols_p90,2015,Muzaffarnagar,Uttar Pradesh,0.0,2.842626452781237
+ols_p90,2015,Saharanpur,Uttar Pradesh,0.0,1.3362964395057055
+ols_p90,2016,Ambala,Haryana,1.0,0.8127669289865298
+ols_p90,2016,Bhiwani,Haryana,5.0,9.009836237567908
+ols_p90,2016,Fatehabad,Haryana,4.0,6.002543731728714
+ols_p90,2016,Hisar,Haryana,6.0,8.586417390769418
+ols_p90,2016,Jhajjar,Haryana,0.0,0.5938057747248267
+ols_p90,2016,Jind,Haryana,5.0,4.931818907642678
+ols_p90,2016,Kaithal,Haryana,3.0,3.496234207931207
+ols_p90,2016,Karnal,Haryana,0.0,0.0
+ols_p90,2016,Kurukshetra,Haryana,0.0,0.0
+ols_p90,2016,Panipat,Haryana,3.0,3.093359746636938
+ols_p90,2016,Rohtak,Haryana,1.0,2.0490564909624007
+ols_p90,2016,Sirsa,Haryana,6.0,5.2039367615876575
+ols_p90,2016,Sonipat,Haryana,2.0,3.1235866179438974
+ols_p90,2016,Yamunanagar,Haryana,1.0,0.6599941739486312
+ols_p90,2016,Amritsar,Punjab,2.0,0.0
+ols_p90,2016,Bathinda,Punjab,5.0,6.096031481777659
+ols_p90,2016,Faridkot,Punjab,3.0,0.0
+ols_p90,2016,Ferozepur,Punjab,2.0,3.0276015924232063
+ols_p90,2016,Gurdaspur,Punjab,0.0,1.193802615621777
+ols_p90,2016,Jalandhar,Punjab,1.0,0.0
+ols_p90,2016,Kapurthala,Punjab,2.0,0.17002517287489116
+ols_p90,2016,Ludhiana,Punjab,0.0,0.0
+ols_p90,2016,Mansa,Punjab,4.0,5.792470847045511
+ols_p90,2016,Moga,Punjab,2.0,0.0
+ols_p90,2016,Patiala,Punjab,0.0,0.5755274059890247
+ols_p90,2016,Sangrur,Punjab,3.0,0.8318049313696418
+ols_p90,2016,Sri Muktsar Sahib,Punjab,4.0,3.7723182397456982
+ols_p90,2016,Aligarh,Uttar Pradesh,2.0,7.239934325312538
+ols_p90,2016,Budaun,Uttar Pradesh,5.0,6.1097246853117815
+ols_p90,2016,Bulandshahr,Uttar Pradesh,7.0,7.618646474652571
+ols_p90,2016,Etah,Uttar Pradesh,4.0,7.374464406212672
+ols_p90,2016,Etawah,Uttar Pradesh,4.0,6.376216138296025
+ols_p90,2016,Hardoi,Uttar Pradesh,1.0,7.571065964289573
+ols_p90,2016,Kanpur Nagar,Uttar Pradesh,6.0,9.886021466211915
+ols_p90,2016,Meerut,Uttar Pradesh,6.0,5.689051112662916
+ols_p90,2016,Muzaffarnagar,Uttar Pradesh,5.0,4.018042938166389
+ols_p90,2016,Saharanpur,Uttar Pradesh,4.0,1.147968405007831
+ols_p90,2017,Ambala,Haryana,7.0,5.9260676688310845
+ols_p90,2017,Bhiwani,Haryana,13.0,12.160692867958911
+ols_p90,2017,Fatehabad,Haryana,13.0,6.754148470301403
+ols_p90,2017,Hisar,Haryana,15.0,10.89543296826415
+ols_p90,2017,Jhajjar,Haryana,2.0,0.9165043976353591
+ols_p90,2017,Jind,Haryana,13.0,6.823958978767059
+ols_p90,2017,Kaithal,Haryana,11.0,7.306859780176707
+ols_p90,2017,Karnal,Haryana,1.0,0.28764781629337977
+ols_p90,2017,Kurukshetra,Haryana,1.0,0.0
+ols_p90,2017,Panipat,Haryana,10.0,6.083888564032716
+ols_p90,2017,Rohtak,Haryana,9.0,5.6066753580352024
+ols_p90,2017,Sirsa,Haryana,13.0,10.553988298890735
+ols_p90,2017,Sonipat,Haryana,8.0,5.773284166020346
+ols_p90,2017,Yamunanagar,Haryana,7.0,4.395005371264754
+ols_p90,2017,Amritsar,Punjab,8.0,1.8027605057231926
+ols_p90,2017,Bathinda,Punjab,15.0,9.122146764806796
+ols_p90,2017,Faridkot,Punjab,12.0,6.1433134011379735
+ols_p90,2017,Ferozepur,Punjab,11.0,7.002054851546811
+ols_p90,2017,Gurdaspur,Punjab,0.0,2.3225474187620767
+ols_p90,2017,Jalandhar,Punjab,1.0,5.395825577499504
+ols_p90,2017,Kapurthala,Punjab,1.0,4.969729466435516
+ols_p90,2017,Ludhiana,Punjab,6.0,4.529928869177734
+ols_p90,2017,Mansa,Punjab,13.0,7.757145334874993
+ols_p90,2017,Moga,Punjab,10.0,4.182408106557392
+ols_p90,2017,Patiala,Punjab,7.0,6.033060934793671
+ols_p90,2017,Sangrur,Punjab,9.0,6.166725804291142
+ols_p90,2017,Sri Muktsar Sahib,Punjab,11.0,8.026335503254824
+ols_p90,2017,Aligarh,Uttar Pradesh,7.0,8.866358113230305
+ols_p90,2017,Budaun,Uttar Pradesh,9.0,9.138554755390327
+ols_p90,2017,Bulandshahr,Uttar Pradesh,10.0,9.624134113891454
+ols_p90,2017,Etah,Uttar Pradesh,9.0,9.81127892322126
+ols_p90,2017,Etawah,Uttar Pradesh,5.0,6.854434666985751
+ols_p90,2017,Hardoi,Uttar Pradesh,2.0,6.583788211321972
+ols_p90,2017,Kanpur Nagar,Uttar Pradesh,12.0,11.332215168376122
+ols_p90,2017,Meerut,Uttar Pradesh,10.0,8.590303509839632
+ols_p90,2017,Muzaffarnagar,Uttar Pradesh,9.0,7.376062437535945
+ols_p90,2017,Saharanpur,Uttar Pradesh,8.0,5.509833954947114
+ols_p90,2018,Ambala,Haryana,0.0,3.5657471652926773
+ols_p90,2018,Bhiwani,Haryana,7.0,11.356051433524295
+ols_p90,2018,Fatehabad,Haryana,11.0,6.13633535932928
+ols_p90,2018,Hisar,Haryana,10.0,8.294562214347986
+ols_p90,2018,Jhajjar,Haryana,0.0,3.81305638188539
+ols_p90,2018,Jind,Haryana,6.0,3.294531976387183
+ols_p90,2018,Kaithal,Haryana,1.0,2.6028525939544176
+ols_p90,2018,Karnal,Haryana,0.0,0.3884051453906596
+ols_p90,2018,Kurukshetra,Haryana,0.0,0.8897375925391224
+ols_p90,2018,Panipat,Haryana,1.0,4.1517650212002275
+ols_p90,2018,Rohtak,Haryana,4.0,5.476839769059895
+ols_p90,2018,Sirsa,Haryana,14.0,8.627327717916915
+ols_p90,2018,Sonipat,Haryana,1.0,4.726658044620676
+ols_p90,2018,Yamunanagar,Haryana,0.0,2.4853215294185356
+ols_p90,2018,Amritsar,Punjab,1.0,1.24667085708866
+ols_p90,2018,Bathinda,Punjab,10.0,5.632318284501864
+ols_p90,2018,Faridkot,Punjab,7.0,3.8545243373810485
+ols_p90,2018,Ferozepur,Punjab,10.0,5.354472097110111
+ols_p90,2018,Gurdaspur,Punjab,0.0,1.3693708907209374
+ols_p90,2018,Jalandhar,Punjab,0.0,2.311559465982283
+ols_p90,2018,Kapurthala,Punjab,0.0,1.9552390494191538
+ols_p90,2018,Ludhiana,Punjab,0.0,1.5931633858130145
+ols_p90,2018,Mansa,Punjab,7.0,5.855603515006659
+ols_p90,2018,Moga,Punjab,1.0,1.40854637322732
+ols_p90,2018,Patiala,Punjab,0.0,2.795987315288116
+ols_p90,2018,Sangrur,Punjab,2.0,2.339518083640476
+ols_p90,2018,Sri Muktsar Sahib,Punjab,12.0,5.223363498857752
+ols_p90,2018,Aligarh,Uttar Pradesh,4.0,7.468705932082365
+ols_p90,2018,Budaun,Uttar Pradesh,4.0,6.512118427882874
+ols_p90,2018,Bulandshahr,Uttar Pradesh,6.0,7.298012785587007
+ols_p90,2018,Etah,Uttar Pradesh,5.0,7.697612833996513
+ols_p90,2018,Etawah,Uttar Pradesh,2.0,8.21386242555393
+ols_p90,2018,Hardoi,Uttar Pradesh,3.0,7.601018684359291
+ols_p90,2018,Kanpur Nagar,Uttar Pradesh,7.0,9.16334974598937
+ols_p90,2018,Meerut,Uttar Pradesh,3.0,5.844767253769959
+ols_p90,2018,Muzaffarnagar,Uttar Pradesh,2.0,3.921255591077803
+ols_p90,2018,Saharanpur,Uttar Pradesh,0.0,2.431627303147185
+ols_p90,2019,Ambala,Haryana,0.0,0.7263738971290614
+ols_p90,2019,Bhiwani,Haryana,6.0,7.947943006643715
+ols_p90,2019,Fatehabad,Haryana,10.0,5.059783987815992
+ols_p90,2019,Hisar,Haryana,9.0,8.100489009599524
+ols_p90,2019,Jhajjar,Haryana,0.0,0.0
+ols_p90,2019,Jind,Haryana,6.0,2.6502086952626343
+ols_p90,2019,Kaithal,Haryana,1.0,1.351197126647938
+ols_p90,2019,Karnal,Haryana,0.0,0.0
+ols_p90,2019,Kurukshetra,Haryana,0.0,0.0
+ols_p90,2019,Panipat,Haryana,1.0,1.770124788221975
+ols_p90,2019,Rohtak,Haryana,4.0,0.9531053249466885
+ols_p90,2019,Sirsa,Haryana,12.0,7.188795745504409
+ols_p90,2019,Sonipat,Haryana,2.0,1.3351381125288895
+ols_p90,2019,Yamunanagar,Haryana,0.0,0.7409343612346566
+ols_p90,2019,Amritsar,Punjab,2.0,0.544631982278494
+ols_p90,2019,Bathinda,Punjab,14.0,4.4044462473219035
+ols_p90,2019,Faridkot,Punjab,5.0,1.93802696130023
+ols_p90,2019,Ferozepur,Punjab,7.0,3.3895618588713
+ols_p90,2019,Gurdaspur,Punjab,0.0,0.7941813959510107
+ols_p90,2019,Jalandhar,Punjab,0.0,2.457444366662588
+ols_p90,2019,Kapurthala,Punjab,0.0,2.277575255959876
+ols_p90,2019,Ludhiana,Punjab,0.0,0.09082950299370385
+ols_p90,2019,Mansa,Punjab,11.0,4.2312521177828115
+ols_p90,2019,Moga,Punjab,1.0,0.0
+ols_p90,2019,Patiala,Punjab,0.0,0.0
+ols_p90,2019,Sangrur,Punjab,1.0,0.0
+ols_p90,2019,Sri Muktsar Sahib,Punjab,11.0,3.4003888888049687
+ols_p90,2019,Aligarh,Uttar Pradesh,3.0,4.387048951003491
+ols_p90,2019,Budaun,Uttar Pradesh,5.0,5.787028014555247
+ols_p90,2019,Bulandshahr,Uttar Pradesh,5.0,6.412586813625429
+ols_p90,2019,Etah,Uttar Pradesh,4.0,5.978449019754512
+ols_p90,2019,Etawah,Uttar Pradesh,0.0,3.0586768778404325
+ols_p90,2019,Hardoi,Uttar Pradesh,1.0,2.9621692624377416
+ols_p90,2019,Kanpur Nagar,Uttar Pradesh,4.0,6.63140458976994
+ols_p90,2019,Meerut,Uttar Pradesh,4.0,6.732614251957028
+ols_p90,2019,Muzaffarnagar,Uttar Pradesh,2.0,5.062964124633652
+ols_p90,2019,Saharanpur,Uttar Pradesh,0.0,4.067939549536002
+ols_p90,2020,Ambala,Haryana,0.0,0.0
+ols_p90,2020,Bhiwani,Haryana,0.0,2.975774925068956
+ols_p90,2020,Fatehabad,Haryana,0.0,0.3965167777959948
+ols_p90,2020,Hisar,Haryana,0.0,1.0695570586498695
+ols_p90,2020,Jhajjar,Haryana,0.0,0.0
+ols_p90,2020,Jind,Haryana,0.0,0.0
+ols_p90,2020,Kaithal,Haryana,0.0,0.0
+ols_p90,2020,Karnal,Haryana,0.0,0.0
+ols_p90,2020,Kurukshetra,Haryana,0.0,0.0
+ols_p90,2020,Panipat,Haryana,0.0,0.0
+ols_p90,2020,Rohtak,Haryana,0.0,0.0
+ols_p90,2020,Sirsa,Haryana,0.0,2.0851360951619413
+ols_p90,2020,Sonipat,Haryana,0.0,0.0
+ols_p90,2020,Yamunanagar,Haryana,0.0,0.0
+ols_p90,2020,Amritsar,Punjab,0.0,0.0
+ols_p90,2020,Bathinda,Punjab,1.0,1.659131355585469
+ols_p90,2020,Faridkot,Punjab,0.0,0.0
+ols_p90,2020,Ferozepur,Punjab,0.0,0.15384357466470977
+ols_p90,2020,Gurdaspur,Punjab,0.0,0.0
+ols_p90,2020,Jalandhar,Punjab,0.0,0.0
+ols_p90,2020,Kapurthala,Punjab,0.0,0.0
+ols_p90,2020,Ludhiana,Punjab,0.0,0.0
+ols_p90,2020,Mansa,Punjab,0.0,1.0614335873359564
+ols_p90,2020,Moga,Punjab,0.0,0.0
+ols_p90,2020,Patiala,Punjab,0.0,0.0
+ols_p90,2020,Sangrur,Punjab,0.0,0.0
+ols_p90,2020,Sri Muktsar Sahib,Punjab,0.0,0.2735243140421457
+ols_p90,2020,Aligarh,Uttar Pradesh,0.0,4.440331880644864
+ols_p90,2020,Budaun,Uttar Pradesh,0.0,4.7194000572738295
+ols_p90,2020,Bulandshahr,Uttar Pradesh,0.0,5.507954963792505
+ols_p90,2020,Etah,Uttar Pradesh,0.0,5.822600994379922
+ols_p90,2020,Etawah,Uttar Pradesh,0.0,4.3851915889895166
+ols_p90,2020,Hardoi,Uttar Pradesh,0.0,3.1727449229721953
+ols_p90,2020,Kanpur Nagar,Uttar Pradesh,1.0,6.322977372495862
+ols_p90,2020,Meerut,Uttar Pradesh,0.0,5.012163825650909
+ols_p90,2020,Muzaffarnagar,Uttar Pradesh,0.0,2.974918550858647
+ols_p90,2020,Saharanpur,Uttar Pradesh,0.0,1.589223602892126
+ols_p90,2021,Ambala,Haryana,0.0,2.4062516506291276
+ols_p90,2021,Bhiwani,Haryana,3.0,9.580071430694659
+ols_p90,2021,Fatehabad,Haryana,4.0,7.138718239727888
+ols_p90,2021,Hisar,Haryana,4.0,8.408056859278336
+ols_p90,2021,Jhajjar,Haryana,0.0,1.4429503789641323
+ols_p90,2021,Jind,Haryana,3.0,4.581946851966883
+ols_p90,2021,Kaithal,Haryana,0.0,3.66569504941773
+ols_p90,2021,Karnal,Haryana,0.0,0.0
+ols_p90,2021,Kurukshetra,Haryana,0.0,0.0
+ols_p90,2021,Panipat,Haryana,0.0,3.7463020375716716
+ols_p90,2021,Rohtak,Haryana,2.0,3.500665002455944
+ols_p90,2021,Sirsa,Haryana,5.0,9.681401593067601
+ols_p90,2021,Sonipat,Haryana,2.0,4.219969092763196
+ols_p90,2021,Yamunanagar,Haryana,0.0,1.9894015997766812
+ols_p90,2021,Amritsar,Punjab,0.0,1.968839189022269
+ols_p90,2021,Bathinda,Punjab,6.0,8.839951571712724
+ols_p90,2021,Faridkot,Punjab,1.0,4.649395257855257
+ols_p90,2021,Ferozepur,Punjab,1.0,5.4980042945997
+ols_p90,2021,Gurdaspur,Punjab,0.0,2.7545057633555494
+ols_p90,2021,Jalandhar,Punjab,0.0,2.090292588082323
+ols_p90,2021,Kapurthala,Punjab,0.0,2.6381132372695353
+ols_p90,2021,Ludhiana,Punjab,0.0,0.6866197243366461
+ols_p90,2021,Mansa,Punjab,5.0,7.520639716275441
+ols_p90,2021,Moga,Punjab,0.0,2.4601272774018055
+ols_p90,2021,Patiala,Punjab,0.0,2.336128302532517
+ols_p90,2021,Sangrur,Punjab,1.0,3.1842888159613962
+ols_p90,2021,Sri Muktsar Sahib,Punjab,3.0,6.3569495587395455
+ols_p90,2021,Aligarh,Uttar Pradesh,3.0,7.133901828692542
+ols_p90,2021,Budaun,Uttar Pradesh,2.0,5.87878574592968
+ols_p90,2021,Bulandshahr,Uttar Pradesh,6.0,8.911931021192734
+ols_p90,2021,Etah,Uttar Pradesh,3.0,7.764115246135226
+ols_p90,2021,Etawah,Uttar Pradesh,0.0,5.873885586471177
+ols_p90,2021,Hardoi,Uttar Pradesh,1.0,5.829987287352427
+ols_p90,2021,Kanpur Nagar,Uttar Pradesh,9.0,9.35939615298022
+ols_p90,2021,Meerut,Uttar Pradesh,5.0,7.596570239229128
+ols_p90,2021,Muzaffarnagar,Uttar Pradesh,3.0,6.5820041672414495
+ols_p90,2021,Saharanpur,Uttar Pradesh,1.0,4.914866747173003
+ols_p90,2022,Ambala,Haryana,5.0,6.424468230961324
+ols_p90,2022,Bhiwani,Haryana,18.0,13.5752619761581
+ols_p90,2022,Fatehabad,Haryana,21.0,10.853219257331991
+ols_p90,2022,Hisar,Haryana,21.0,12.262381581922309
+ols_p90,2022,Jhajjar,Haryana,5.0,5.953061708165178
+ols_p90,2022,Jind,Haryana,15.0,8.446980586296725
+ols_p90,2022,Kaithal,Haryana,9.0,7.39673972856337
+ols_p90,2022,Karnal,Haryana,0.0,3.139751522104609
+ols_p90,2022,Kurukshetra,Haryana,0.0,3.8798184549855406
+ols_p90,2022,Panipat,Haryana,7.0,6.532037527891184
+ols_p90,2022,Rohtak,Haryana,9.0,6.110840495606927
+ols_p90,2022,Sirsa,Haryana,25.0,13.923142095298722
+ols_p90,2022,Sonipat,Haryana,7.0,6.460529451118935
+ols_p90,2022,Yamunanagar,Haryana,1.0,5.4873883038121605
+ols_p90,2022,Amritsar,Punjab,10.0,5.776300686654539
+ols_p90,2022,Bathinda,Punjab,22.0,12.31983121287061
+ols_p90,2022,Faridkot,Punjab,16.0,8.765035798452228
+ols_p90,2022,Ferozepur,Punjab,19.0,9.988326035493206
+ols_p90,2022,Gurdaspur,Punjab,2.0,5.580392191212939
+ols_p90,2022,Jalandhar,Punjab,6.0,6.111040381733894
+ols_p90,2022,Kapurthala,Punjab,7.0,6.414955451656207
+ols_p90,2022,Ludhiana,Punjab,5.0,5.357901186423005
+ols_p90,2022,Mansa,Punjab,21.0,11.169318601060201
+ols_p90,2022,Moga,Punjab,9.0,6.078828332791609
+ols_p90,2022,Patiala,Punjab,5.0,6.119510434592498
+ols_p90,2022,Sangrur,Punjab,10.0,7.071263923133633
+ols_p90,2022,Sri Muktsar Sahib,Punjab,21.0,10.83880226510265
+ols_p90,2022,Aligarh,Uttar Pradesh,10.0,10.667780623939834
+ols_p90,2022,Budaun,Uttar Pradesh,9.0,8.708730612328718
+ols_p90,2022,Bulandshahr,Uttar Pradesh,15.0,12.004323409867787
+ols_p90,2022,Etah,Uttar Pradesh,13.0,10.040710527081716
+ols_p90,2022,Etawah,Uttar Pradesh,9.0,8.30817627350008
+ols_p90,2022,Hardoi,Uttar Pradesh,8.0,8.466403003039723
+ols_p90,2022,Kanpur Nagar,Uttar Pradesh,14.0,10.674493651147841
+ols_p90,2022,Meerut,Uttar Pradesh,11.0,9.86984505818435
+ols_p90,2022,Muzaffarnagar,Uttar Pradesh,12.0,8.638358076062127
+ols_p90,2022,Saharanpur,Uttar Pradesh,8.0,6.923705988542686
+ols_p90,2023,Ambala,Haryana,0.0,0.0
+ols_p90,2023,Bhiwani,Haryana,0.0,3.184606038808219
+ols_p90,2023,Fatehabad,Haryana,0.0,4.403178733269628
+ols_p90,2023,Hisar,Haryana,0.0,3.8855134889506013
+ols_p90,2023,Jhajjar,Haryana,0.0,1.5569189986889502
+ols_p90,2023,Jind,Haryana,0.0,1.6776003449814336
+ols_p90,2023,Kaithal,Haryana,0.0,0.0
+ols_p90,2023,Karnal,Haryana,0.0,0.0
+ols_p90,2023,Kurukshetra,Haryana,0.0,0.0
+ols_p90,2023,Panipat,Haryana,0.0,0.34038842026433525
+ols_p90,2023,Rohtak,Haryana,0.0,0.0
+ols_p90,2023,Sirsa,Haryana,0.0,5.503890934350336
+ols_p90,2023,Sonipat,Haryana,0.0,0.0
+ols_p90,2023,Yamunanagar,Haryana,0.0,0.0
+ols_p90,2023,Amritsar,Punjab,0.0,0.0
+ols_p90,2023,Bathinda,Punjab,1.0,7.3509212731724265
+ols_p90,2023,Faridkot,Punjab,0.0,0.0
+ols_p90,2023,Ferozepur,Punjab,0.0,1.4974269761454262
+ols_p90,2023,Gurdaspur,Punjab,0.0,0.0
+ols_p90,2023,Jalandhar,Punjab,0.0,0.0
+ols_p90,2023,Kapurthala,Punjab,0.0,0.0
+ols_p90,2023,Ludhiana,Punjab,0.0,0.0
+ols_p90,2023,Mansa,Punjab,0.0,5.852319729699551
+ols_p90,2023,Moga,Punjab,0.0,0.0
+ols_p90,2023,Patiala,Punjab,0.0,0.0
+ols_p90,2023,Sangrur,Punjab,0.0,0.0
+ols_p90,2023,Sri Muktsar Sahib,Punjab,0.0,2.976873583600035
+ols_p90,2023,Aligarh,Uttar Pradesh,0.0,3.3299451527506223
+ols_p90,2023,Budaun,Uttar Pradesh,0.0,2.383165441808002
+ols_p90,2023,Bulandshahr,Uttar Pradesh,0.0,2.7719285098514534
+ols_p90,2023,Etah,Uttar Pradesh,0.0,3.3562967750603394
+ols_p90,2023,Etawah,Uttar Pradesh,0.0,2.127198572377817
+ols_p90,2023,Hardoi,Uttar Pradesh,0.0,2.669818981309821
+ols_p90,2023,Kanpur Nagar,Uttar Pradesh,0.0,5.497959357864358
+ols_p90,2023,Meerut,Uttar Pradesh,0.0,2.4285968220004692
+ols_p90,2023,Muzaffarnagar,Uttar Pradesh,0.0,4.033186311397852
+ols_p90,2023,Saharanpur,Uttar Pradesh,0.0,2.0552389520012433
+ols_p90,2024,Ambala,Haryana,1.0,0.0
+ols_p90,2024,Bhiwani,Haryana,3.0,5.3130357612348105
+ols_p90,2024,Fatehabad,Haryana,2.0,2.5390067828240386
+ols_p90,2024,Hisar,Haryana,3.0,2.9812271304179196
+ols_p90,2024,Jhajjar,Haryana,0.0,0.0
+ols_p90,2024,Jind,Haryana,1.0,0.7462207744600247
+ols_p90,2024,Kaithal,Haryana,1.0,0.2509728426668931
+ols_p90,2024,Karnal,Haryana,0.0,0.0
+ols_p90,2024,Kurukshetra,Haryana,0.0,0.0
+ols_p90,2024,Panipat,Haryana,1.0,0.3667000218526595
+ols_p90,2024,Rohtak,Haryana,2.0,0.5423631465230585
+ols_p90,2024,Sirsa,Haryana,3.0,5.294286843093921
+ols_p90,2024,Sonipat,Haryana,1.0,1.0050281483481784
+ols_p90,2024,Yamunanagar,Haryana,0.0,0.0
+ols_p90,2024,Amritsar,Punjab,0.0,0.0
+ols_p90,2024,Bathinda,Punjab,4.0,4.439141882955727
+ols_p90,2024,Faridkot,Punjab,0.0,0.0
+ols_p90,2024,Ferozepur,Punjab,0.0,1.5443478188051438
+ols_p90,2024,Gurdaspur,Punjab,0.0,0.0
+ols_p90,2024,Jalandhar,Punjab,0.0,0.0
+ols_p90,2024,Kapurthala,Punjab,0.0,0.0
+ols_p90,2024,Ludhiana,Punjab,0.0,0.0
+ols_p90,2024,Mansa,Punjab,2.0,3.9265830870811698
+ols_p90,2024,Moga,Punjab,0.0,0.0
+ols_p90,2024,Patiala,Punjab,1.0,0.0
+ols_p90,2024,Sangrur,Punjab,0.0,0.0
+ols_p90,2024,Sri Muktsar Sahib,Punjab,2.0,1.3850491848531483
+ols_p90,2024,Aligarh,Uttar Pradesh,5.0,3.8611762952740394
+ols_p90,2024,Budaun,Uttar Pradesh,4.0,3.9785558102271574
+ols_p90,2024,Bulandshahr,Uttar Pradesh,7.0,5.5921769938770955
+ols_p90,2024,Etah,Uttar Pradesh,5.0,4.15858167771038
+ols_p90,2024,Etawah,Uttar Pradesh,0.0,1.955354793166588
+ols_p90,2024,Hardoi,Uttar Pradesh,1.0,2.5581397577268925
+ols_p90,2024,Kanpur Nagar,Uttar Pradesh,8.0,3.9382243421638408
+ols_p90,2024,Meerut,Uttar Pradesh,2.0,4.37417949617945
+ols_p90,2024,Muzaffarnagar,Uttar Pradesh,0.0,3.333561325639784
+ols_p90,2024,Saharanpur,Uttar Pradesh,0.0,1.219194063486515

@@ -1,0 +1,9 @@
+case_id,case_name,expected_range,pred_class,pred_label,confidence,max_prob,in_expected_range,status,rationale
+D01,Heat damage: High Tmax + Low SM + Declining NDVI,[2-3],1,LESS DAMAGED,LOW,0.3208,False,WARN,High heat + severe SM deficit + canopy collapse -> MODERATELY/SEVERELY DAMAGED
+D02,Buffered: High Tmax + Sufficient SM + Stable NDVI (irrigated),[0-1],1,LESS DAMAGED,LOW,0.3375,True,PASS,High temp but irrigation buffering -> NOT/LESS DAMAGED
+D03,Non-heat decline: Normal Tmax + Low NDVI,[0-1],0,NOT DAMAGED,MEDIUM,0.4089,True,PASS,"Low NDVI without heat -> disease/pest/drought, NOT heat damage"
+D04,Baseline: Normal temperature + healthy vegetation,[0-0],0,NOT DAMAGED,MEDIUM,0.4596,True,PASS,Normal healthy season -> NOT DAMAGED
+D05,Heat + healthy vegetation: possible irrigation buffering,[0-1],1,LESS DAMAGED,LOW,0.3279,True,PASS,Irrigation-buffered heat stress -> at most LESS DAMAGED
+D06,Cold season + declining NDVI (not heatwave),[0-1],0,NOT DAMAGED,HIGH,0.6359,True,PASS,Cold year NDVI decline -> NOT heat damage
+D07,Severe heatwave + NO vegetation decline (irrigated),[0-2],3,SEVERELY DAMAGED,LOW,0.3165,False,WARN,Heatwave exposure but vegetation maintained -> subclinical
+D08,Mild heatwave + significant NDVI decline (possibly other cause),[0-2],1,LESS DAMAGED,LOW,0.3497,True,PASS,Mild heat but large NDVI decline -> mixed attribution

@@ -1,0 +1,11 @@
+{
+  "split_year": 2019,
+  "window": [
+    0,
+    40
+  ],
+  "hot_c": 35.0,
+  "min_train_years": 5,
+  "rows": 814,
+  "created": "2026-10-29 01:22:10"
+}

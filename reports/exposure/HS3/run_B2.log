@@ -1,0 +1,194 @@
+LABEL = HS3 (>= 3 days with Tmax >= 35 C) | rows 814 | prevalence 0.378 | rolling years 2008..2024 | test years >= 2019
+
+==============================================================================
+0. NaN AUDIT - share of missing satellite values per year (look at 2024)
+==============================================================================
+no year has >5% rows with missing features
+
+==============================================================================
+1+2. BASELINES AND SKILL DECOMPOSITION
+==============================================================================
+AUC = pooled; within_year_AUC = mean AUC over years with >=3 positives and >=3 negatives;
+year_level_r = corr(mean score, prevalence) across years; within_district_rho = Spearman after removing district means.
+
+--- rolling_test (years 2019..2024, 6 years) ---
+      model   n  prevalence   AUC  within_year_AUC  n_within_years  year_level_r  within_district_rho  PR_lift    F1  bal_acc   MCC  recall   FPR
+       clim 222       0.329 0.734            0.948               4        -0.725               -0.600    1.620 0.615    0.709 0.395   0.712 0.295
+   thr_mean 222       0.329 0.831            0.907               4         0.601                0.407    2.229 0.635    0.725 0.429   0.726 0.275
+    thr_p90 222       0.329 0.947            0.964               4         0.931                0.611    2.784 0.812    0.875 0.715   0.918 0.168
+     lr_p90 222       0.329 0.946            0.964               4         0.916                0.656    2.776 0.812    0.875 0.715   0.918 0.168
+lr_p90_clim 222       0.329 0.943            0.961               4         0.911                0.646    2.765 0.790    0.854 0.680   0.877 0.168
+     lr_lst 222       0.329 0.954            0.969               4         0.950                0.680    2.798 0.812    0.879 0.717   0.945 0.188
+ lr_all_sat 222       0.329 0.951            0.950               4         0.937                0.665    2.792 0.775    0.848 0.657   0.918 0.221
+
+--- rolling_all (years 2008..2024, 17 years) ---
+      model   n  prevalence   AUC  within_year_AUC  n_within_years  year_level_r  within_district_rho  PR_lift    F1  bal_acc   MCC  recall   FPR
+       clim 629       0.335 0.674            0.861              12        -0.428               -0.350    1.322 0.573    0.669 0.324   0.645 0.306
+   thr_mean 629       0.335 0.812            0.867              12         0.603                0.404    2.100 0.636    0.723 0.426   0.716 0.270
+    thr_p90 629       0.335 0.917            0.911              12         0.896                0.612    2.584 0.772    0.836 0.648   0.844 0.172
+     lr_p90 629       0.335 0.911            0.911              12         0.888                0.631    2.555 0.772    0.836 0.648   0.844 0.172
+lr_p90_clim 629       0.335 0.902            0.892              12         0.880                0.609    2.520 0.763    0.826 0.636   0.810 0.158
+     lr_lst 629       0.335 0.911            0.912              12         0.870                0.590    2.569 0.758    0.825 0.625   0.839 0.189
+ lr_all_sat 629       0.335 0.904            0.917              12         0.799                0.551    2.538 0.734    0.808 0.585   0.858 0.242
+
+--- loyo_all (years 2003..2024, 22 years) ---
+      model   n  prevalence   AUC  within_year_AUC  n_within_years  year_level_r  within_district_rho  PR_lift    F1  bal_acc   MCC  recall   FPR
+       clim 814       0.378 0.708            0.902              17        -1.000               -1.000    1.440 0.635    0.697 0.384   0.698 0.304
+   thr_mean 814       0.378 0.812            0.852              17         0.632                0.416    1.910 0.663    0.725 0.441   0.698 0.249
+    thr_p90 814       0.378 0.915            0.908              17         0.900                0.633    2.297 0.790    0.834 0.651   0.864 0.196
+     lr_p90 814       0.378 0.909            0.908              17         0.897                0.654    2.273 0.790    0.834 0.651   0.864 0.196
+lr_p90_clim 814       0.378 0.905            0.901              17         0.889                0.645    2.261 0.783    0.827 0.640   0.838 0.184
+     lr_lst 814       0.378 0.909            0.909              17         0.872                0.637    2.273 0.798    0.839 0.668   0.834 0.156
+ lr_all_sat 814       0.378 0.911            0.913              17         0.872                0.627    2.298 0.783    0.826 0.642   0.825 0.172
+
+==============================================================================
+3. YEAR-BLOCK BOOTSTRAP (resampling years) for the key models
+==============================================================================
+
+--- rolling_all (17 years; with few years the CI is wide - that is the point) ---
+                    model  metric   mean   lo95   hi95  n_boot_ok
+                  thr_p90     AUC  0.916  0.879  0.949       1000
+                  thr_p90 bal_acc  0.833  0.785  0.879       1000
+                  thr_p90     MCC  0.639  0.527  0.726       1000
+                   lr_p90     AUC  0.909  0.869  0.945       1000
+                   lr_p90 bal_acc  0.833  0.785  0.879       1000
+                   lr_p90     MCC  0.639  0.527  0.726       1000
+     lr_p90 minus thr_p90     AUC -0.007 -0.013 -0.002       1000
+     lr_p90 minus thr_p90 bal_acc  0.000  0.000  0.000       1000
+     lr_p90 minus thr_p90     MCC  0.000  0.000  0.000       1000
+              lr_p90_clim     AUC  0.900  0.848  0.945       1000
+              lr_p90_clim bal_acc  0.823  0.769  0.869       1000
+              lr_p90_clim     MCC  0.626  0.502  0.714       1000
+lr_p90_clim minus thr_p90     AUC -0.016 -0.034 -0.004       1000
+lr_p90_clim minus thr_p90 bal_acc -0.010 -0.036  0.007       1000
+lr_p90_clim minus thr_p90     MCC -0.013 -0.047  0.019       1000
+                   lr_lst     AUC  0.909  0.852  0.951       1000
+                   lr_lst bal_acc  0.821  0.748  0.873       1000
+                   lr_lst     MCC  0.614  0.449  0.718       1000
+     lr_lst minus thr_p90     AUC -0.007 -0.033  0.014       1000
+     lr_lst minus thr_p90 bal_acc -0.012 -0.057  0.020       1000
+     lr_lst minus thr_p90     MCC -0.025 -0.100  0.038       1000
+               lr_all_sat     AUC  0.903  0.834  0.951       1000
+               lr_all_sat bal_acc  0.804  0.729  0.861       1000
+               lr_all_sat     MCC  0.576  0.405  0.699       1000
+ lr_all_sat minus thr_p90     AUC -0.013 -0.053  0.015       1000
+ lr_all_sat minus thr_p90 bal_acc -0.029 -0.088  0.023       1000
+ lr_all_sat minus thr_p90     MCC -0.063 -0.167  0.035       1000
+
+--- loyo_all (22 years; with few years the CI is wide - that is the point) ---
+                    model  metric   mean   lo95   hi95  n_boot_ok
+                  thr_p90     AUC  0.914  0.886  0.939       1000
+                  thr_p90 bal_acc  0.832  0.800  0.861       1000
+                  thr_p90     MCC  0.645  0.564  0.705       1000
+                   lr_p90     AUC  0.908  0.879  0.934       1000
+                   lr_p90 bal_acc  0.832  0.800  0.861       1000
+                   lr_p90     MCC  0.645  0.564  0.705       1000
+     lr_p90 minus thr_p90     AUC -0.006 -0.008 -0.004       1000
+     lr_p90 minus thr_p90 bal_acc  0.000  0.000  0.000       1000
+     lr_p90 minus thr_p90     MCC  0.000  0.000  0.000       1000
+              lr_p90_clim     AUC  0.903  0.870  0.932       1000
+              lr_p90_clim bal_acc  0.825  0.785  0.855       1000
+              lr_p90_clim     MCC  0.633  0.542  0.697       1000
+lr_p90_clim minus thr_p90     AUC -0.011 -0.018 -0.006       1000
+lr_p90_clim minus thr_p90 bal_acc -0.008 -0.022  0.002       1000
+lr_p90_clim minus thr_p90     MCC -0.012 -0.033  0.006       1000
+                   lr_lst     AUC  0.908  0.872  0.938       1000
+                   lr_lst bal_acc  0.837  0.803  0.870       1000
+                   lr_lst     MCC  0.662  0.585  0.730       1000
+     lr_lst minus thr_p90     AUC -0.006 -0.021  0.008       1000
+     lr_lst minus thr_p90 bal_acc  0.005 -0.014  0.023       1000
+     lr_lst minus thr_p90     MCC  0.017 -0.019  0.054       1000
+               lr_all_sat     AUC  0.910  0.877  0.937       1000
+               lr_all_sat bal_acc  0.823  0.777  0.860       1000
+               lr_all_sat     MCC  0.634  0.542  0.705       1000
+ lr_all_sat minus thr_p90     AUC -0.004 -0.019  0.010       1000
+ lr_all_sat minus thr_p90 bal_acc -0.009 -0.039  0.019       1000
+ lr_all_sat minus thr_p90     MCC -0.011 -0.065  0.040       1000
+
+--- rolling_test (6 years; with few years the CI is wide - that is the point) ---
+                    model  metric   mean   lo95  hi95  n_boot_ok
+                  thr_p90     AUC  0.946  0.886 0.993        997
+                  thr_p90 bal_acc  0.869  0.811 0.910        997
+                  thr_p90     MCC  0.692  0.494 0.795        997
+                   lr_p90     AUC  0.945  0.882 0.991        997
+                   lr_p90 bal_acc  0.869  0.811 0.910        997
+                   lr_p90     MCC  0.692  0.494 0.795        997
+     lr_p90 minus thr_p90     AUC -0.001 -0.005 0.002        997
+     lr_p90 minus thr_p90 bal_acc  0.000  0.000 0.000        997
+     lr_p90 minus thr_p90     MCC  0.000  0.000 0.000        997
+              lr_p90_clim     AUC  0.941  0.876 0.992        997
+              lr_p90_clim bal_acc  0.843  0.753 0.903        997
+              lr_p90_clim     MCC  0.650  0.416 0.762        997
+lr_p90_clim minus thr_p90     AUC -0.005 -0.009 0.000        997
+lr_p90_clim minus thr_p90 bal_acc -0.026 -0.097 0.000        997
+lr_p90_clim minus thr_p90     MCC -0.042 -0.137 0.000        997
+                   lr_lst     AUC  0.954  0.904 0.993        997
+                   lr_lst bal_acc  0.872  0.829 0.910        997
+                   lr_lst     MCC  0.694  0.533 0.790        997
+     lr_lst minus thr_p90     AUC  0.008 -0.005 0.029        997
+     lr_lst minus thr_p90 bal_acc  0.003 -0.027 0.044        997
+     lr_lst minus thr_p90     MCC  0.002 -0.044 0.062        997
+               lr_all_sat     AUC  0.949  0.905 0.992        997
+               lr_all_sat bal_acc  0.837  0.764 0.891        997
+               lr_all_sat     MCC  0.630  0.433 0.756        997
+ lr_all_sat minus thr_p90     AUC  0.004 -0.013 0.026        997
+ lr_all_sat minus thr_p90 bal_acc -0.032 -0.112 0.037        997
+ lr_all_sat minus thr_p90     MCC -0.061 -0.181 0.045        997
+
+==============================================================================
+4. CONTINUOUS TARGET (hot-day count, log1p) - no threshold involved
+==============================================================================
+target features  pooled_rho  mean_within_year_rho  n_within_years  year_level_rho
+   n35 p90_only       0.707                 0.614              17           0.807
+   n35     lst8       0.681                 0.601              17           0.662
+   n35  all_sat       0.698                 0.687              17           0.661
+ hdd35 p90_only       0.720                 0.652              17           0.814
+ hdd35     lst8       0.701                 0.637              17           0.723
+ hdd35  all_sat       0.713                 0.693              17           0.659
+
+==============================================================================
+5. FALSE-ALARM AND PER-YEAR AUDIT for lr_lst (rolling origin, test years)
+==============================================================================
+false alarms: 28 of 149 negatives (18.8%)
+  share of false alarms that were NEAR-MISSES (n35 between 1 and 2): 46.4%
+  mean hot days: false alarms 0.68 vs true negatives 0.21
+  false alarms with n35 == 0: 53.6%
+         n  prevalence  mean_score  pred_pos  recall   FPR  AUC_within  mean_n35
+Year                                                                            
+2019  37.0        0.46        0.36      0.43    0.82  0.10        0.94      3.54
+2020  37.0        0.00        0.18      0.19     NaN  0.19         NaN      0.05
+2021  37.0        0.38        0.49      0.62    1.00  0.39        0.99      1.97
+2022  37.0        0.89        0.94      1.00    1.00  1.00        0.98     10.95
+2023  37.0        0.00        0.15      0.11     NaN  0.11         NaN      0.03
+2024  37.0        0.24        0.22      0.27    0.89  0.07        0.96      1.59
+
+same audit, all rolling years:
+false alarms: 79 of 418 negatives (18.9%)
+  share of false alarms that were NEAR-MISSES (n35 between 1 and 2): 55.7%
+  mean hot days: false alarms 0.85 vs true negatives 0.39
+  false alarms with n35 == 0: 44.3%
+
+per-year, all_sat ablation (test years):
+false alarms: 33 of 149 negatives (22.1%)
+  share of false alarms that were NEAR-MISSES (n35 between 1 and 2): 45.5%
+  mean hot days: false alarms 0.67 vs true negatives 0.20
+  false alarms with n35 == 0: 54.5%
+         n  prevalence  pred_pos  recall   FPR
+Year                                          
+2019  37.0        0.46      0.46    0.88  0.10
+2020  37.0        0.00      0.22     NaN  0.22
+2021  37.0        0.38      0.70    1.00  0.52
+2022  37.0        0.89      1.00    1.00  1.00
+2023  37.0        0.00      0.14     NaN  0.14
+2024  37.0        0.24      0.19    0.56  0.07
+
+==============================================================================
+6. VERDICT against the pre-registered criterion
+==============================================================================
+[rolling_all] (a) AUC(prod) - AUC(thr_p90) bootstrap lower bound = -0.033 -> FAIL;  (b) within-year AUC = 0.912 (> 0.65) -> ok
+[loyo_all] (a) AUC(prod) - AUC(thr_p90) bootstrap lower bound = -0.021 -> FAIL;  (b) within-year AUC = 0.909 (> 0.65) -> ok
+
+(a) FAILED: the 8-feature model does not beat a raw LST p90 threshold. Report B1 as a calibrated LST p90 threshold for exposure detection (use lr_p90 as the headline).
+Freeze B1 now and stop adding variants (forking paths).
+
+All tables saved in reports/exposure/B2\HS3

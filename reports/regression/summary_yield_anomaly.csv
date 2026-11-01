@@ -1,0 +1,7 @@
+Target,Model,Split,n,RMSE,MAE,R2,R2_within_year,Spearman,Skill_vs_Baseline
+Yield_Anomaly (yield_z),Baseline (Clim/Zero),TEST (>=2019),148,0.9465,0.7,-0.0062,0.0,,0.0
+Yield_Anomaly (yield_z),RandomForest,TEST (>=2019),148,1.3866,1.0392,-1.1593,-0.3218,-0.1825,-1.1459
+Yield_Anomaly (yield_z),ExtraTrees,TEST (>=2019),148,1.3866,1.0534,-1.1595,-0.3602,-0.193,-1.1461
+Yield_Anomaly (yield_z),HistGradientBoosting,TEST (>=2019),148,1.4167,1.1047,-1.2543,-0.4488,-0.1607,-1.2403
+Yield_Anomaly (yield_z),ElasticNet,TEST (>=2019),148,1.6299,1.2585,-1.9837,-0.9478,-0.2275,-1.9652
+Yield_Anomaly (yield_z),Ridge,TEST (>=2019),148,1.6726,1.3127,-2.1422,-0.992,-0.1808,-2.1227

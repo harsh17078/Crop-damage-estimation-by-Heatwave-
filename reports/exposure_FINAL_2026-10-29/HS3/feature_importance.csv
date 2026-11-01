@@ -1,0 +1,9 @@
+feature,importance,method
+sat_lst_day_p90,0.4096877851680003,permutation(AP)
+sat_lst_day_max,0.031214340652699873,permutation(AP)
+sat_lst_day_std,0.022370681033407405,permutation(AP)
+sat_lst_day_mean,0.0013145048827267192,permutation(AP)
+sat_lst_day_pre,-0.0008640986765195424,permutation(AP)
+sat_lst_night_mean,-0.0026112742983913223,permutation(AP)
+sat_lst_dtr,-0.002631004310486254,permutation(AP)
+sat_lst_rise,-0.003590831557871335,permutation(AP)

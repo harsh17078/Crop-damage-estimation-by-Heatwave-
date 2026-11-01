@@ -1,0 +1,42 @@
+District,P_doy,n_ref,edge_share,spread,State,P_raw,P_fallback
+Agra,54,8,0.0,5.527528509973641,Uttar Pradesh,30,True
+Aligarh,52,8,0.0,5.730557190560593,Uttar Pradesh,52,False
+Ambala,52,8,0.0,9.794313218831192,Haryana,52,False
+Amritsar,57,8,0.0,8.458934414485753,Punjab,57,False
+Bathinda,62,8,0.0,8.41766849294642,Punjab,62,False
+Bhiwani,52,8,0.0,5.962681563572839,Haryana,52,False
+Budaun,54,8,0.0,4.810702354423638,Uttar Pradesh,54,False
+Bulandshahr,58,8,0.0,5.625198409199194,Uttar Pradesh,58,False
+Etah,53,8,0.0,4.59813626840888,Uttar Pradesh,53,False
+Etawah,46,8,0.0,6.453127702351562,Uttar Pradesh,46,False
+Faridkot,56,8,0.0,9.745878249657281,Punjab,56,False
+Fatehabad,58,8,0.0,7.634508123364221,Haryana,58,False
+Ferozepur,59,8,0.0,7.717096048940394,Punjab,59,False
+Firozabad,54,8,0.0,7.050835816716037,Uttar Pradesh,32,True
+Gurdaspur,56,8,0.0,7.900045207827249,Punjab,56,False
+Hardoi,48,8,0.0,6.761234037828136,Uttar Pradesh,48,False
+Hisar,57,8,0.0,5.756983337031395,Haryana,57,False
+Jalandhar,53,8,0.0,8.396427811873332,Punjab,53,False
+Jhajjar,42,8,0.0,9.303417190934276,Haryana,42,False
+Jhansi,54,8,0.0,9.140764269390795,Uttar Pradesh,17,True
+Jind,56,8,0.0,6.104740546727366,Haryana,56,False
+Kaithal,54,8,0.0,5.0832357523811265,Haryana,54,False
+Kanpur Nagar,52,8,0.0,4.94974746830583,Uttar Pradesh,52,False
+Kapurthala,54,8,0.0,8.035634920242991,Punjab,54,False
+Karnal,46,8,0.0,8.773946823245675,Haryana,46,False
+Kurukshetra,46,8,0.0,9.19627253681776,Haryana,46,False
+Ludhiana,52,8,0.0,7.387247699341654,Punjab,52,False
+Mansa,60,8,0.0,9.210824377561744,Punjab,60,False
+Mathura,54,8,0.0,5.599744892148469,Uttar Pradesh,34,True
+Meerut,58,8,0.0,4.8678977568791,Uttar Pradesh,58,False
+Moga,54,8,0.0,8.38365757206926,Punjab,54,False
+Muzaffarnagar,59,8,0.0,5.866064633612068,Uttar Pradesh,59,False
+Panipat,53,8,0.0,5.477225575051661,Haryana,53,False
+Patiala,52,8,0.0,8.609587678861283,Punjab,52,False
+Rohtak,50,8,0.0,7.596991885890475,Haryana,50,False
+Saharanpur,58,8,0.0,7.7781745930520225,Uttar Pradesh,58,False
+Sangrur,54,8,0.0,8.700369450283624,Punjab,54,False
+Sirsa,59,8,0.0,7.270291799999699,Haryana,59,False
+Sonipat,52,8,0.0,5.063877678504601,Haryana,52,False
+Sri Muktsar Sahib,60,8,0.0,8.102027964828135,Punjab,60,False
+Yamunanagar,52,8,0.0,10.730463976122241,Haryana,52,False

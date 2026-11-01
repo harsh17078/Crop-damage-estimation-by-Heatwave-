@@ -1,0 +1,5 @@
+,Pred_No Significant Damage,Pred_Mild Damage,Pred_Moderate Damage,Pred_Severe Damage
+True_No Significant Damage,135,0,0,0
+True_Mild Damage,10,25,1,0
+True_Moderate Damage,2,25,2,2
+True_Severe Damage,0,16,2,2

@@ -1,0 +1,89 @@
+case_id,case_name,sub,crashed,has_nan,has_inf,pred_label,status,note,category,pred_class,physically_reasonable,confidence,expected_range,max_prob,in_expected_range,rationale,spatial_context,expected_ood,flagged_as_ood,ood_score,ood_correct
+A01,NDVI missing,single_feature_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A02,EVI missing,single_feature_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A03,NDMI missing,single_feature_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A04,LST day mean missing,single_feature_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A05,LST day max missing,single_feature_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A06,LST night missing,single_feature_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A07,LST p90 missing,single_feature_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A08,Tmax fill missing,single_feature_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A09,Rainfall fill missing,single_feature_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A10,Soil moisture missing,single_feature_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A11,VPD missing,single_feature_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A12,NDVI change missing,single_feature_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A13,All primary satellite features missing,multi_satellite_missing,False,False,False,NOT DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A14,All veg-window features missing,multi_satellite_missing,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A15,All weather features missing,all_wx_missing,False,False,False,NOT DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A16,Entire district-year missing,entire_record_missing,False,False,False,NOT DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A17,All-NaN record,all_nan,False,False,False,NOT DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A18,+Inf LST day mean,inf_values,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A19,-Inf LST day mean,inf_values,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A20,+Inf Tmax fill,inf_values,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A21,+Inf NDVI,inf_values,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A22,-Inf Soil Moisture,inf_values,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A23,Zero NDVI and EVI,zero_values,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+A24,Missing v3 (pre-peak) observations,missing_critical_stage,False,False,False,LESS DAMAGED,PASS,OK,A,,,,,,,,,,,,
+B01,Extreme Tmax 45C,,False,,,SEVERELY DAMAGED,PASS,Expected >= class 1 for severe heat/drought,B,3.0,True,,,,,,,,,,
+B02,Extreme Tmax 50C (physiological kill),,False,,,SEVERELY DAMAGED,PASS,Expected >= class 1 for severe heat/drought,B,3.0,True,,,,,,,,,,
+B03,Extreme LST 55C,,False,,,LESS DAMAGED,PASS,Extreme condition: no-crash check,B,1.0,True,,,,,,,,,,
+B04,Extreme LST 60C,,False,,,LESS DAMAGED,PASS,Extreme condition: no-crash check,B,1.0,True,,,,,,,,,,
+B05,Prolonged heatwave run35=20 days,,False,,,LESS DAMAGED,PASS,Extreme condition: no-crash check,B,1.0,True,,,,,,,,,,
+B06,Prolonged heatwave run35=30 days,,False,,,LESS DAMAGED,PASS,Extreme condition: no-crash check,B,1.0,True,,,,,,,,,,
+B07,"Complete drought (rainfall=0, SM=0.01)",,False,,,MODERATELY DAMAGED,PASS,Expected >= class 1 for severe heat/drought,B,2.0,True,,,,,,,,,,
+B08,Severe SM deficiency (SM=0.03),,False,,,LESS DAMAGED,PASS,Extreme condition: no-crash check,B,1.0,True,,,,,,,,,,
+B09,Extreme rainfall 500mm flood,,False,,,NOT DAMAGED,PASS,Flood: any valid prediction acceptable,B,0.0,True,,,,,,,,,,
+B10,Extreme rainfall 800mm,,False,,,NOT DAMAGED,PASS,Flood: any valid prediction acceptable,B,0.0,True,,,,,,,,,,
+B11,High Tmax + very low SM (combined heat-drought),,False,,,LESS DAMAGED,PASS,Expected >= class 1 for severe heat/drought,B,1.0,True,,,,,,,,,,
+B12,High Tmax + sufficient rainfall (partial buffering),,False,,,LESS DAMAGED,PASS,Extreme condition: no-crash check,B,1.0,True,,,,,,,,,,
+B13,High VPD evapotranspiration stress,,False,,,LESS DAMAGED,PASS,Extreme condition: no-crash check,B,1.0,True,,,,,,,,,,
+B14,Zero solar radiation,,False,,,LESS DAMAGED,PASS,Extreme condition: no-crash check,B,1.0,True,,,,,,,,,,
+B15,Near-freezing conditions (frost during grain fill),,False,,,NOT DAMAGED,PASS,Cold: expect <= class 1 (not heat damage),B,0.0,True,,,,,,,,,,
+B16,Normal Tmax + zero rainfall late-season drought,,False,,,LESS DAMAGED,PASS,Expected >= class 1 for severe heat/drought,B,1.0,True,,,,,,,,,,
+B17,Negative SM (physically impossible -- robustness check),,False,,,LESS DAMAGED,PASS,Impossible value: crash check only,B,1.0,True,,,,,,,,,,
+B18,Negative rainfall (impossible -- robustness check),,False,,,LESS DAMAGED,PASS,Impossible value: crash check only,B,1.0,True,,,,,,,,,,
+B19,Extreme anomhot_days >30,,False,,,LESS DAMAGED,PASS,Extreme condition: no-crash check,B,1.0,True,,,,,,,,,,
+B20,Simultaneous all-worst-case extremes,,False,,,LESS DAMAGED,PASS,Expected >= class 1 for severe heat/drought,B,1.0,True,,,,,,,,,,
+C01,NDVI close to -1 (bare/water),,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C02,NDVI = 0 (no vegetation),,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C03,NDVI close to 1 (maximum greenness),,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C04,Extremely low all vegetation indices,,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C05,Unusually high NDVI > 0.9 across all windows,,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C06,Missing v3 (critical pre-peak window),,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C07,Missing NDVI at all windows v1/v2/v3,,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C08,Zero LST observations in window (cloud-covered),,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C09,Only 1 LST observation (low confidence),,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C10,Inconsistent: high LST but high NDVI (irrigated),,False,False,,NOT DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C11,Inconsistent: normal LST but very low NDVI (non-heat decline),,False,False,,NOT DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C12,NDVI positive but EVI negative (sensor artefact),,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C13,Negative NDMI (severe water stress),,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C14,NDMI > 0.5 (waterlogged),,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C15,S_dndvi large negative (severe canopy collapse),,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C16,S_dndvi positive (late-season rain greenup),,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C17,All S_ signals missing,,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C18,Very high LST DTR 30C,,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C19,Negative LST DTR (cloud artefact -- night warmer than day),,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+C20,Maximum LST p90 62C desert-like,,False,False,,LESS DAMAGED,PASS,OK,C,,,LOW,,,,,,,,,
+D01,Heat damage: High Tmax + Low SM + Declining NDVI,,,,,LESS DAMAGED,WARN,,D,1.0,,LOW,[2-3],0.3208,False,High heat + severe SM deficit + canopy collapse -> MODERATELY/SEVERELY DAMAGED,,,,,
+D02,Buffered: High Tmax + Sufficient SM + Stable NDVI (irrigated),,,,,LESS DAMAGED,PASS,,D,1.0,,LOW,[0-1],0.3375,True,High temp but irrigation buffering -> NOT/LESS DAMAGED,,,,,
+D03,Non-heat decline: Normal Tmax + Low NDVI,,,,,NOT DAMAGED,PASS,,D,0.0,,MEDIUM,[0-1],0.4089,True,"Low NDVI without heat -> disease/pest/drought, NOT heat damage",,,,,
+D04,Baseline: Normal temperature + healthy vegetation,,,,,NOT DAMAGED,PASS,,D,0.0,,MEDIUM,[0-0],0.4596,True,Normal healthy season -> NOT DAMAGED,,,,,
+D05,Heat + healthy vegetation: possible irrigation buffering,,,,,LESS DAMAGED,PASS,,D,1.0,,LOW,[0-1],0.3279,True,Irrigation-buffered heat stress -> at most LESS DAMAGED,,,,,
+D06,Cold season + declining NDVI (not heatwave),,,,,NOT DAMAGED,PASS,,D,0.0,,HIGH,[0-1],0.6359,True,Cold year NDVI decline -> NOT heat damage,,,,,
+D07,Severe heatwave + NO vegetation decline (irrigated),,,,,SEVERELY DAMAGED,WARN,,D,3.0,,LOW,[0-2],0.3165,False,Heatwave exposure but vegetation maintained -> subclinical,,,,,
+D08,Mild heatwave + significant NDVI decline (possibly other cause),,,,,LESS DAMAGED,PASS,,D,1.0,,LOW,[0-2],0.3497,True,Mild heat but large NDVI decline -> mixed attribution,,,,,
+E01,High-yield district (Punjab baseline),,,,,NOT DAMAGED,PASS,,E,0.0,,,,,,,known,False,True,726.275,True
+E02,Low-yield district (arid zone),,,,,MODERATELY DAMAGED,PASS,,E,2.0,,,,,,,known,False,True,570.624,True
+E03,Unusual: high yield in hot year,,,,,LESS DAMAGED,PASS,,E,1.0,,,,,,,known,False,True,467.455,True
+E04,Incomplete historical record (many features NaN),,,,,LESS DAMAGED,PASS,,E,1.0,,,,,,,known,False,True,469.123,True
+E05,Previously unseen district (OOD),,,,,LESS DAMAGED,PASS,,E,1.0,,,,,,,unseen_district,True,True,491.029,True
+E06,Year 2030 (unseen future),,,,,LESS DAMAGED,PASS,,E,1.0,,,,,,,future_year,True,True,491.648,True
+E07,Year 2035 (climate change scenario),,,,,LESS DAMAGED,PASS,,E,1.0,,,,,,,future_year,True,True,615.626,True
+E08,Unprecedented weather year (all extremes),,,,,LESS DAMAGED,PASS,,E,1.0,,,,,,,extreme_climate,True,True,11170.541,True
+E09,Desert-like climate (Rajasthan extreme),,,,,LESS DAMAGED,PASS,,E,1.0,,,,,,,extreme_climate,True,True,1265.081,True
+E10,Humid tropical (atypical for wheat),,,,,NOT DAMAGED,PASS,,E,0.0,,,,,,,atypical_climate,True,True,4563.013,True
+E11,Unusual: low temp in normally hot district,,,,,NOT DAMAGED,PASS,,E,0.0,,,,,,,unusual_pattern,False,True,423.795,True
+E12,District with NDVI data gaps,,,,,LESS DAMAGED,PASS,,E,1.0,,,,,,,incomplete_record,False,True,489.804,True
+E13,Transition year (features near distribution edge),,,,,LESS DAMAGED,PASS,,E,1.0,,,,,,,known,False,True,568.186,True
+E14,Very low crop mask coverage,,,,,LESS DAMAGED,PASS,,E,1.0,,,,,,,low_coverage,False,True,489.808,True
+E15,High SM retention (deep black soil),,,,,NOT DAMAGED,PASS,,E,0.0,,,,,,,soil_difference,False,True,472.283,True
+E16,"High altitude district (cooler LST, lower NDVI)",,,,,NOT DAMAGED,PASS,,E,0.0,,,,,,,altitude,False,True,425.887,True

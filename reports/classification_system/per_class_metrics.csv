@@ -1,0 +1,5 @@
+class_id,frontend_label,internal_label,support,precision,recall,f1_score
+0,NOT DAMAGED,No Significant Heatwave Damage,135,0.9231,0.9778,0.9496
+1,LESS DAMAGED,Mild Heatwave Damage,36,0.4237,0.6944,0.5263
+2,MODERATELY DAMAGED,Moderate Heatwave Damage,31,0.5,0.1935,0.2791
+3,SEVERELY DAMAGED,Severe Heatwave Damage,20,0.75,0.3,0.4286

@@ -1,0 +1,133 @@
+
+==============================================================================
+B3 - IMD VALIDATION
+==============================================================================
+table: 814 district-years, 37 districts, years 2003-2024
+districts with centroids: 37
+Downloading: maxtemp for year 2003
+Download Successful !!!
+Downloading: maxtemp for year 2004
+Download Successful !!!
+Downloading: maxtemp for year 2005
+Download Successful !!!
+Downloading: maxtemp for year 2006
+Download Successful !!!
+Downloading: maxtemp for year 2007
+Download Successful !!!
+Downloading: maxtemp for year 2008
+Download Successful !!!
+Downloading: maxtemp for year 2009
+Download Successful !!!
+Downloading: maxtemp for year 2010
+Download Successful !!!
+Downloading: maxtemp for year 2011
+Download Successful !!!
+Downloading: maxtemp for year 2012
+Download Successful !!!
+Downloading: maxtemp for year 2013
+Download Successful !!!
+Downloading: maxtemp for year 2014
+Download Successful !!!
+Downloading: maxtemp for year 2015
+Download Successful !!!
+Downloading: maxtemp for year 2016
+Download Successful !!!
+Downloading: maxtemp for year 2017
+Download Successful !!!
+Downloading: maxtemp for year 2018
+Download Successful !!!
+Downloading: maxtemp for year 2019
+Download Successful !!!
+Downloading: maxtemp for year 2020
+Download Successful !!!
+Downloading: maxtemp for year 2021
+Download Successful !!!
+Downloading: maxtemp for year 2022
+Download Successful !!!
+Downloading: maxtemp for year 2023
+Download Successful !!!
+Downloading: maxtemp for year 2024
+Download Successful !!!
+IMD Tmax years loaded: 2003..2024 (22 years); grid 31 x 31
+district-years with enough IMD data: 814 of 814
+
+==============================================================================
+1. DAILY Tmax: ERA5-Land minus IMD (days inside the P..P+40 windows)
+==============================================================================
+pooled: n=33374 days | mean bias -0.25 C | RMSE 1.42 C | r=0.951
+hot days only (IMD >= 33 C): n=6494 | mean bias -0.58 C
+                   n  bias  rmse
+State                           
+Haryana        12628 -0.28  1.28
+Punjab         11726  0.10  1.47
+Uttar Pradesh   9020 -0.65  1.53
+(negative bias = ERA5-Land cooler than IMD; a 1-degree IMD cell smooths local extremes)
+
+==============================================================================
+2. LABEL AGREEMENT: HSk from ERA5-Land vs HSk from IMD
+==============================================================================
+label   n  prev_era5  prev_imd  accuracy  kappa  era5_only  imd_only  both  spearman_n35
+  HS2 814      0.469     0.479     0.855  0.709         55        63   327         0.839
+  HS3 814      0.378     0.420     0.860  0.709         40        74   268         0.839
+  HS5 814      0.279     0.324     0.869  0.689         35        72   192         0.839
+
+By year (HS3):
+         n  HS3_era5  HS3_imd  agree  mean_n35_era5  mean_n35_imd
+Year                                                             
+2003  37.0      0.27     0.14   0.81           1.41          0.92
+2004  37.0      0.89     0.73   0.84          11.65          8.89
+2005  37.0      0.32     0.30   0.86           1.43          1.54
+2006  37.0      0.57     0.46   0.78           3.59          3.11
+2007  37.0      0.57     0.49   0.86           3.81          2.86
+2008  37.0      0.11     0.38   0.68           1.41          3.30
+2009  37.0      0.08     0.16   0.86           0.59          1.27
+2010  37.0      1.00     0.89   0.89          14.35         13.27
+2011  37.0      0.14     0.24   0.89           1.38          1.84
+2012  37.0      0.43     0.59   0.78           3.32          4.70
+2013  37.0      0.05     0.22   0.78           0.54          1.16
+2014  37.0      0.00     0.05   0.95           0.27          0.59
+2015  37.0      0.08     0.27   0.81           0.54          1.43
+2016  37.0      0.54     0.62   0.86           2.95          4.14
+2017  37.0      0.81     0.84   0.86           8.32          8.54
+2018  37.0      0.49     0.62   0.81           3.81          5.59
+2019  37.0      0.46     0.41   0.95           3.54          2.81
+2020  37.0      0.00     0.00   1.00           0.05          0.16
+2021  37.0      0.38     0.49   0.84           1.97          3.35
+2022  37.0      0.89     0.95   0.95          10.95         12.86
+2023  37.0      0.00     0.00   1.00           0.03          0.11
+2024  37.0      0.24     0.41   0.84           1.59          2.38
+
+state-year Spearman of mean hot-day count (ERA5 vs IMD): 0.898 (n=66) | year-level: 0.915 (n=22)
+
+Sensitivity (descriptive only): which IMD threshold best reproduces the ERA5 HS3 label?
+ imd_threshold_C  prev_imd  kappa_vs_era5_35C
+              33     0.681              0.431
+              34     0.564              0.597
+              35     0.420              0.709
+              36     0.289              0.691
+              37     0.181              0.514
+
+==============================================================================
+3. SATELLITE DETECTION vs ERA5 label and vs IMD label (raw LST p90, nothing fitted)
+==============================================================================
+label   n  prev_era5  prev_imd  AUC_era5  AUC_imd  AUC_imd_lo95  AUC_imd_hi95  diff_imd_minus_era5  diff_lo95  diff_hi95  within_year_AUC_era5  within_year_AUC_imd  n_within_years  PR_lift_imd
+  HS2 814      0.469     0.479     0.889    0.905         0.862         0.936                0.017     -0.006      0.041                 0.880                0.905              17        1.888
+  HS3 814      0.378     0.420     0.915    0.910         0.867         0.941               -0.005     -0.031      0.020                 0.908                0.914              17        2.094
+  HS5 814      0.279     0.324     0.906    0.914         0.874         0.946                0.008     -0.019      0.038                 0.894                0.929              13        2.578
+
+Frozen B1 model (saved test-year scores) vs the IMD label:
+label   n test_years  AUC_vs_era5_label  AUC_vs_imd_label  bal_acc_vs_era5  bal_acc_vs_imd  recall_vs_imd  FPR_vs_imd
+  HS3 222  2019-2024              0.955             0.950            0.869           0.862          0.904       0.180
+  HS2 222  2019-2024              0.928             0.934            0.855           0.868          0.860       0.124
+  HS5 222  2019-2024              0.947             0.944            0.844           0.872          0.926       0.182
+
+==============================================================================
+4. VERDICT against the pre-registered criteria (HS3)
+==============================================================================
+(a) ERA5 vs IMD HS3 label kappa = 0.709 (>= 0.6) -> ok
+(b) LST p90 vs IMD HS3 AUC = 0.910 [0.867, 0.941] (>= 0.85) -> ok
+(c) AUC drop vs ERA5 label = +0.005 (<= 0.05) -> ok
+
+MODIS LST detects heat exposure as defined by independent station-based IMD data too: the result is not an ERA5 artefact.
+
+All tables saved in reports/exposure/B3_imd

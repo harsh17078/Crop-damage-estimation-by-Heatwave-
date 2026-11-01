@@ -1,0 +1,69 @@
+
+==============================================================================
+B1  |  ACTIVE LABEL = HS3  (>= 3 days with Tmax >= 35 C in P..P+40)
+==============================================================================
+rows 814 | districts 37 | years 2003-2024 | satellite features 12 (lst: 8)
+prevalence of all labels: {'HS1': np.float64(0.587), 'HS2': np.float64(0.469), 'HS3': np.float64(0.378), 'HS5': np.float64(0.279)}
+HS3 prevalence by state: {'Haryana': 0.354, 'Punjab': 0.322, 'Uttar Pradesh': 0.486}
+HS3 prevalence by year : {2003: 0.27, 2004: 0.89, 2005: 0.32, 2006: 0.57, 2007: 0.57, 2008: 0.11, 2009: 0.08, 2010: 1.0, 2011: 0.14, 2012: 0.43, 2013: 0.05, 2014: 0.0, 2015: 0.08, 2016: 0.54, 2017: 0.81, 2018: 0.49, 2019: 0.46, 2020: 0.0, 2021: 0.38, 2022: 0.89, 2023: 0.0, 2024: 0.24}
+CV years 2008..2018 | test years [2019, 2020, 2021, 2022, 2023, 2024]
+
+==============================================================================
+CROSS-VALIDATION (rolling origin) - ablation grid; the production model is FROZEN, not chosen from this
+==============================================================================
+reference points (no model fitting): {'clim': {'ROC_AUC': 0.64, 'PR_lift': np.float64(1.234)}, 'lst_mean': {'ROC_AUC': 0.801, 'PR_lift': np.float64(2.033)}, 'lst_p90': {'ROC_AUC': 0.901, 'PR_lift': np.float64(2.478)}}
+   fset  district_z model  prevalence  always_pos_F1    F1  precision  recall  bal_acc   MCC  ROC_AUC  PR_lift skill
+    lst       False    lr       0.339          0.506 0.743      0.696   0.797    0.809 0.601    0.888    2.467    ok
+all_sat       False    lr       0.339          0.506 0.739      0.694   0.790    0.806 0.595    0.877    2.436    ok
+    lst       False   svm       0.339          0.506 0.744      0.721   0.768    0.808 0.607    0.868    2.261    ok
+all_sat       False    rf       0.339          0.506 0.739      0.694   0.790    0.806 0.595    0.868    2.276    ok
+    lst       False    rf       0.339          0.506 0.729      0.718   0.739    0.795 0.586    0.867    2.240    ok
+all_sat       False   xgb       0.339          0.506 0.743      0.675   0.826    0.811 0.597    0.865    2.268    ok
+    lst       False   xgb       0.339          0.506 0.728      0.686   0.775    0.797 0.578    0.859    2.251    ok
+all_sat       False   svm       0.339          0.506 0.718      0.649   0.804    0.791 0.558    0.854    2.264    ok
+    lst        True   xgb       0.339          0.506 0.627      0.703   0.565    0.721 0.470    0.786    2.005    ok
+    lst        True    lr       0.339          0.506 0.593      0.606   0.580    0.693 0.391    0.785    2.091    ok
+all_sat        True    lr       0.339          0.506 0.594      0.535   0.667    0.685 0.354    0.778    2.029    ok
+    lst        True   svm       0.339          0.506 0.669      0.687   0.652    0.750 0.506    0.774    1.858    ok
+    lst        True    rf       0.339          0.506 0.659      0.682   0.638    0.743 0.494    0.770    1.980    ok
+all_sat        True   xgb       0.339          0.506 0.618      0.627   0.609    0.711 0.426    0.768    2.043    ok
+all_sat        True    rf       0.339          0.506 0.632      0.642   0.623    0.722 0.448    0.761    1.927    ok
+all_sat        True   svm       0.339          0.506 0.601      0.563   0.645    0.694 0.377    0.719    1.642    ok
+
+==============================================================================
+TEST (one-year-ahead, refit each year): FROZEN production model vs CV-best (by auc)
+==============================================================================
+(CV-best is identical to the frozen model)
+                            config  prevalence  always_pos_F1    F1  precision  recall  bal_acc   MCC  ROC_AUC  PR_lift skill
+FROZEN (headline): lr/lst/dz=False       0.329          0.495 0.798       0.69   0.945    0.869 0.696    0.955    2.806    ok
+reference points on the test years: {'clim': {'ROC_AUC': 0.734, 'PR_lift': np.float64(1.62)}, 'lst_mean': {'ROC_AUC': 0.831, 'PR_lift': np.float64(2.229)}, 'lst_p90': {'ROC_AUC': 0.947, 'PR_lift': np.float64(2.784)}}
+
+By year (FROZEN model):
+       n  prevalence  pred_pos  recall   FPR
+Year                                        
+2019  37        0.46      0.43    0.82  0.10
+2020  37        0.00      0.19     NaN  0.19
+2021  37        0.38      0.59    1.00  0.35
+2022  37        0.89      1.00    1.00  1.00
+2023  37        0.00      0.19     NaN  0.19
+2024  37        0.24      0.30    0.89  0.11
+
+FEATURE IMPORTANCE (frozen model; permutation importance is split between correlated LST features)
+           feature  importance          method
+   sat_lst_day_p90      0.4097 permutation(AP)
+   sat_lst_day_max      0.0312 permutation(AP)
+   sat_lst_day_std      0.0224 permutation(AP)
+  sat_lst_day_mean      0.0013 permutation(AP)
+   sat_lst_day_pre     -0.0009 permutation(AP)
+sat_lst_night_mean     -0.0026 permutation(AP)
+       sat_lst_dtr     -0.0026 permutation(AP)
+      sat_lst_rise     -0.0036 permutation(AP)
+
+==============================================================================
+LEAVE-ONE-STATE-OUT (train other states < SPLIT_YEAR, test held-out state >= SPLIT_YEAR)
+==============================================================================
+     held_out  n  prevalence    F1  recall  ROC_AUC  PR_lift
+      Haryana 84       0.298 0.780   0.920    0.962    3.149
+       Punjab 78       0.269 0.833   0.952    0.954    3.277
+Uttar Pradesh 60       0.450 0.750   1.000    0.958    2.107
+(states share the same years and weather systems: this checks state-identity leakage, not year-level generalisation)

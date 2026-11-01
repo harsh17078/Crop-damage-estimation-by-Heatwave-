@@ -1,0 +1,34 @@
+{
+  "signal": "S_dndvi",
+  "baseline": "trend",
+  "threshold": -1.0,
+  "validated_against_DES": true,
+  "checks_passed": "5/9",
+  "failed_checks": "top3_share,validity_spearman,validity_auc,validity_stateyear",
+  "alternatives": [
+    {
+      "signal": "S_dndvi",
+      "baseline": "trend",
+      "threshold": -0.5,
+      "checks_passed": 5
+    },
+    {
+      "signal": "S_dndvi",
+      "baseline": "trend",
+      "threshold": -1.5,
+      "checks_passed": 4
+    },
+    {
+      "signal": "S_dndvi",
+      "baseline": "trend",
+      "threshold": -2.0,
+      "checks_passed": 4
+    },
+    {
+      "signal": "S_dndvi",
+      "baseline": "rolling",
+      "threshold": -0.5,
+      "checks_passed": 7
+    }
+  ]
+}

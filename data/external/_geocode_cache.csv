@@ -1,0 +1,38 @@
+District,State,source,lat,lon,query,matched,flag
+Ambala,Haryana,geocode,30.3435002,76.9493554,"Ambala district, Haryana, India","Ambala, Haryana, India",ok
+Bhiwani,Haryana,geocode,28.7328101,75.8928296,"Bhiwani district, Haryana, India","Bhiwani, Haryana, India",ok
+Fatehabad,Haryana,geocode,29.5359209,75.5752901,"Fatehabad district, Haryana, India","Fatehabad, Haryana, India",ok
+Hisar,Haryana,geocode,29.2396596,75.8174505,"Hisar district, Haryana, India","Hisar, Haryana, India",ok
+Jhajjar,Haryana,geocode,28.5964461,76.6505366,"Jhajjar district, Haryana, India","Jhajjar, Haryana, India",ok
+Jind,Haryana,geocode,29.4494987,76.3736217,"Jind district, Haryana, India","Jind, Haryana, India",ok
+Kaithal,Haryana,geocode,29.8536764,76.4684323,"Kaithal district, Haryana, India","Kaithal, Haryana, India",ok
+Karnal,Haryana,geocode,29.7255766,76.9106924,"Karnal district, Haryana, India","Karnal, Haryana, India",ok
+Kurukshetra,Haryana,geocode,30.0606702,76.7631053,"Kurukshetra district, Haryana, India","Kurukshetra, Haryana, India",ok
+Panipat,Haryana,geocode,29.3472909,76.8871622,"Panipat district, Haryana, India","Panipat, Haryana, India",ok
+Rohtak,Haryana,geocode,28.8900602,76.5873106,"Rohtak district, Haryana, India","Rohtak, Haryana, India",ok
+Sirsa,Haryana,geocode,29.6063041,74.9036568,"Sirsa district, Haryana, India","Sirsa, Haryana, India",ok
+Sonipat,Haryana,geocode,29.0414186,76.922715,"Sonipat district, Haryana, India","Sonipat, Haryana, India",ok
+Yamunanagar,Haryana,geocode,30.2158611,77.3256507,"Yamunanagar district, Haryana, India","Yamunanagar, Haryana, India",ok
+Amritsar,Punjab,geocode,31.7685759,74.8315603,"Amritsar district, Punjab, India","Amritsar, Punjab, India",ok
+Bathinda,Punjab,geocode,30.1794814,75.0471098,"Bathinda district, Punjab, India","Bathinda, Punjab, India",ok
+Faridkot,Punjab,geocode,30.6014507,74.7950176,"Faridkot district, Punjab, India","Faridkot, Punjab, India",ok
+Ferozepur,Punjab,geocode,30.8978718,75.8161212,"Ferozepur district, Punjab, India","All India Radio, Ludhiana (Punjab), Ferozepur Road, Gurudev Nagar, Ludhiana, Ludhiana (West) Tahsil, Ludhiana, Punjab, 141002, India",ok
+Gurdaspur,Punjab,geocode,31.9037264,75.2275587,"Gurdaspur district, Punjab, India","Gurdaspur, Punjab, India",ok
+Jalandhar,Punjab,geocode,31.2922312,75.5678878,"Jalandhar district, Punjab, India","Jalandhar, Punjab, India",ok
+Kapurthala,Punjab,geocode,31.3856476,75.3053304,"Kapurthala district, Punjab, India","Kapurthala, Punjab, India",ok
+Ludhiana,Punjab,geocode,30.789407,75.8269724,"Ludhiana district, Punjab, India","Ludhiana, Punjab, India",ok
+Mansa,Punjab,geocode,29.8764133,75.4889564,"Mansa district, Punjab, India","Mansa, Punjab, India",ok
+Moga,Punjab,geocode,30.7877554,75.159359,"Moga district, Punjab, India","Moga, Punjab, India",ok
+Patiala,Punjab,geocode,30.2092778,76.3397231,"Patiala district, Punjab, India","Patiala, Punjab, India",ok
+Sangrur,Punjab,geocode,30.135717,75.8533326,"Sangrur district, Punjab, India","Sangrur, Punjab, India",ok
+Sri Muktsar Sahib,Punjab,geocode,30.2867162,74.5262234,"Sri Muktsar Sahib district, Punjab, India","Sri Muktsar Sahib, Punjab, India",ok
+Aligarh,Uttar Pradesh,geocode,27.8761073,78.1358153,"Aligarh district, Uttar Pradesh, India","Aligarh, Uttar Pradesh, India",ok
+Budaun,Uttar Pradesh,geocode,28.116667,78.983333,"Budaun district, Uttar Pradesh, India","Budaun, Badaun, Uttar Pradesh, 243633, India",ok
+Bulandshahr,Uttar Pradesh,geocode,28.3874073,77.9743805,"Bulandshahr district, Uttar Pradesh, India","Bulandshahr, Uttar Pradesh, India",ok
+Etah,Uttar Pradesh,geocode,27.5550357,78.5992221,"Etah district, Uttar Pradesh, India","Etah, Uttar Pradesh, India",ok
+Etawah,Uttar Pradesh,geocode,26.7155629,79.0917098,"Etawah district, Uttar Pradesh, India","Etawah, Uttar Pradesh, India",ok
+Hardoi,Uttar Pradesh,geocode,27.3369978,80.0998232,"Hardoi district, Uttar Pradesh, India","Hardoi, Uttar Pradesh, India",ok
+Kanpur Nagar,Uttar Pradesh,geocode,26.4410107,80.2652803,"Kanpur Nagar district, Uttar Pradesh, India","Kanpur Nagar, Uttar Pradesh, India",ok
+Meerut,Uttar Pradesh,geocode,29.0018557,77.7679671,"Meerut district, Uttar Pradesh, India","Meerut, Uttar Pradesh, India",ok
+Muzaffarnagar,Uttar Pradesh,geocode,29.4496979,77.7429333,"Muzaffarnagar district, Uttar Pradesh, India","Muzaffarnagar, Uttar Pradesh, India",ok
+Saharanpur,Uttar Pradesh,geocode,29.9856799,77.5040646,"Saharanpur district, Uttar Pradesh, India","Saharanpur, Uttar Pradesh, India",ok
