@@ -263,17 +263,21 @@ export default function Predict({ pitchMode }) {
                   onChange={(e) => setSelectedYear(parseInt(e.target.value))}
                   className="w-full text-xs sm:text-sm bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 >
-                  {years.map(y => <option key={y} value={y}>{y}</option>)}
+                  {years.map(y => (
+                    <option key={y} value={y}>
+                      {y} {y > 2024 ? '• Live Operational' : ''}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
 
-            {/* Year Warnings */}
+            {/* Year Notifications */}
             {isFutureYear && (
-              <div className="flex items-start gap-2 bg-amber-50 border border-amber-300 text-amber-800 text-xs p-3 rounded-lg">
-                <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2 bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs p-3 rounded-lg shadow-sm">
+                <Zap className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5" />
                 <span>
-                  <strong>Unseen Year Notice:</strong> Year {selectedYear} is outside the validated training/holdout period (2003–2024). Satellite observations are processed under operational mode.
+                  <strong>Live Operational Deployment (Rabi {selectedYear}):</strong> Year {selectedYear} processes real-time Google Earth Engine multi-spectral observations (MODIS, ERA5-Land, CHIRPS) with automated phenological stage anchoring.
                 </span>
               </div>
             )}

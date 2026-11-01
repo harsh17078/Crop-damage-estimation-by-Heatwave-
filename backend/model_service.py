@@ -62,6 +62,10 @@ class ModelService:
         return cls._instance
 
     def get_metadata(self) -> Dict[str, Any]:
+        archive_years = [int(y) for y in sorted(self.df_features["Year"].unique())] if not self.df_features.empty else list(range(2003, 2025))
+        # Support operational, current, and upcoming harvest years (2025, 2026, 2027)
+        operational_years = list(range(2003, 2028))
+        all_years = sorted(list(set(archive_years + operational_years)))
         return {
             "project_title": self.config.get("project_title", "Wheat Crop Heatwave Damage Estimation"),
             "model_type": self.config.get("classification_model", {}).get("type", "ExtraTreesClassifier (Balanced)"),
@@ -75,8 +79,9 @@ class ModelService:
             "ood_threshold": round(self.clf.ood_threshold, 2) if not np.isnan(self.clf.ood_threshold) else 53.72,
             "supported_states": ["Haryana", "Punjab", "Uttar Pradesh"],
             "total_districts": len(self.df_centroids["District"].unique()) if not self.df_centroids.empty else 37,
-            "years_available": [int(y) for y in sorted(self.df_features["Year"].unique())] if not self.df_features.empty else list(range(2003, 2025)),
+            "years_available": all_years,
             "validated_test_years": [2019, 2020, 2021, 2022, 2023, 2024],
+            "operational_future_years": [2025, 2026, 2027]
         }
 
     def get_performance_metrics(self) -> Dict[str, Any]:

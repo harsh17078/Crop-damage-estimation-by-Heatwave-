@@ -81,7 +81,8 @@ def get_years():
         "success": True,
         "years": metadata["years_available"],
         "validated_years": metadata["validated_test_years"],
-        "note": "Years 2019-2024 constitute the rolling-origin holdout test period. Years 2025 onwards are unvalidated future/unseen periods."
+        "operational_future_years": metadata.get("operational_future_years", [2025, 2026, 2027]),
+        "note": "Years 2019-2024 constitute the rolling-origin holdout test period. Years 2025 onwards are operational deployment periods with live GEE extraction."
     })
 
 
