@@ -1,52 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  getStates, getDistricts, getYears, submitPrediction 
+import {
+  getStates, getDistricts, getYears, submitPrediction
 } from '../api';
 import MapPicker from '../components/MapPicker';
 import ProbabilityBar from '../components/ProbabilityBar';
 import FeaturesTable from '../components/FeaturesTable';
-import { 
-  Play, AlertCircle, CheckCircle, AlertTriangle, ShieldAlert, 
-  MapPin, Calendar, Compass, RefreshCw, ThermometerSun, Info,
-  Printer, FileText, CheckCircle2, Zap, ArrowRight, Lightbulb
+import {
+  Play, AlertCircle, CheckCircle, AlertTriangle, ShieldAlert,
+  MapPin, RefreshCw, ThermometerSun,
+  Printer, CheckCircle2, Zap, Lightbulb, Compass
 } from 'lucide-react';
 
 const DAMAGE_STYLE = {
   0: {
     label: 'NOT DAMAGED',
-    scientific: 'No Significant Heatwave Damage',
-    pitchTier: 'Healthy Crop Baseline',
+    tier: 'Healthy Crop Baseline',
     color: '#16a34a',
     bg: 'bg-emerald-50 border-emerald-300 text-emerald-900',
     badge: 'bg-emerald-100 text-emerald-800 border-emerald-300',
-    iconColor: 'text-emerald-600',
   },
   1: {
     label: 'LESS DAMAGED',
-    scientific: 'Mild Heatwave Damage',
-    pitchTier: 'Low Damage Risk',
+    tier: 'Low Damage Risk',
     color: '#eab308',
     bg: 'bg-amber-50 border-amber-300 text-amber-900',
     badge: 'bg-amber-100 text-amber-800 border-amber-300',
-    iconColor: 'text-amber-600',
   },
   2: {
     label: 'MODERATELY DAMAGED',
-    scientific: 'Moderate Heatwave Damage',
-    pitchTier: 'Moderate Damage Risk',
+    tier: 'Moderate Damage Risk',
     color: '#f97316',
     bg: 'bg-orange-50 border-orange-300 text-orange-900',
     badge: 'bg-orange-100 text-orange-800 border-orange-300',
-    iconColor: 'text-orange-600',
   },
   3: {
     label: 'SEVERELY DAMAGED',
-    scientific: 'Severe Heatwave Damage',
-    pitchTier: 'Severe Crop Loss Risk',
+    tier: 'Severe Crop Loss Risk',
     color: '#dc2626',
     bg: 'bg-rose-50 border-rose-300 text-rose-900',
     badge: 'bg-rose-100 text-rose-800 border-rose-300',
-    iconColor: 'text-rose-600',
   },
 };
 
@@ -81,7 +73,7 @@ const ACTIONABLE_ADVISORIES = {
   },
 };
 
-export default function Predict({ pitchMode }) {
+export default function Predict() {
   const [states, setStates] = useState([]);
   const [selectedState, setSelectedState] = useState('Haryana');
   const [districts, setDistricts] = useState([]);
@@ -98,26 +90,20 @@ export default function Predict({ pitchMode }) {
   const [error, setError] = useState(null);
   const [result, setResult] = useState(null);
 
-  // Load States & Years on Mount
   useEffect(() => {
     getStates().then(data => {
-      if (data.states && data.states.length > 0) {
-        setStates(data.states);
-      }
-    }).catch(err => console.error(err));
+      if (data.states?.length > 0) setStates(data.states);
+    }).catch(console.error);
 
     getYears().then(data => {
-      if (data.years && data.years.length > 0) {
-        setYears(data.years);
-      }
-    }).catch(err => console.error(err));
+      if (data.years?.length > 0) setYears(data.years);
+    }).catch(console.error);
   }, []);
 
-  // Update Districts when State Changes
   useEffect(() => {
     if (!selectedState) return;
     getDistricts(selectedState).then(data => {
-      if (data.districts && data.districts.length > 0) {
+      if (data.districts?.length > 0) {
         setDistricts(data.districts);
         const exists = data.districts.find(d => d.District === selectedDistrict);
         const target = exists || data.districts[0];
@@ -126,10 +112,9 @@ export default function Predict({ pitchMode }) {
         setLongitude(target.lon);
         setCurrentCentroid({ lat: target.lat, lon: target.lon });
       }
-    }).catch(err => console.error(err));
+    }).catch(console.error);
   }, [selectedState]);
 
-  // Update coordinates when District dropdown changes
   const handleDistrictChange = (distName) => {
     setSelectedDistrict(distName);
     const d = districts.find(item => item.District === distName);
@@ -140,18 +125,13 @@ export default function Predict({ pitchMode }) {
     }
   };
 
-  // Map clicks/drag callback
   const handleMapCoordChange = (newLat, newLon) => {
     setLatitude(newLat);
     setLongitude(newLon);
   };
 
-  // Print Executive PDF Report
-  const handlePrintReport = () => {
-    window.print();
-  };
+  const handlePrintReport = () => window.print();
 
-  // Submit Analysis
   const handleAnalyze = async (e) => {
     e.preventDefault();
     setError(null);
@@ -161,17 +141,16 @@ export default function Predict({ pitchMode }) {
     try {
       setProgressStep('Connecting to Google Earth Engine satellite feeds...');
       await new Promise(r => setTimeout(r, 450));
-
       setProgressStep('Querying MODIS (LST/NDVI) & ERA5-Land climate parameters...');
       await new Promise(r => setTimeout(r, 650));
-
       setProgressStep('Synthesizing 89 agro-climatic features & running ExtraTrees classifier...');
+
       const response = await submitPrediction({
         state: selectedState,
         district: selectedDistrict,
         year: parseInt(selectedYear),
         latitude: parseFloat(latitude),
-        longitude: parseFloat(longitude)
+        longitude: parseFloat(longitude),
       });
 
       if (response.success) {
@@ -181,48 +160,43 @@ export default function Predict({ pitchMode }) {
       }
     } catch (err) {
       console.error(err);
-      const errMsg = err.response?.data?.error || err.message || 'Server error during extraction';
-      setError(errMsg);
+      setError(err.response?.data?.error || err.message || 'Server error during extraction');
     } finally {
       setLoading(false);
       setProgressStep('');
     }
   };
 
-  const isHoldoutYear = selectedYear >= 2019 && selectedYear <= 2024;
   const isFutureYear = selectedYear > 2024;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-      {/* Page Title & Pitch Callout */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6 sm:space-y-8">
+
+      {/* Page Title */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
-            <Compass className="w-6 h-6 text-emerald-700" />
-            {pitchMode ? 'Instant Crop Damage Verification' : 'Location-Based Wheat Crop Damage Assessment'}
+            <Compass className="w-6 h-6 text-emerald-700 flex-shrink-0" />
+            Instant Crop Damage Verification
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            {pitchMode
-              ? 'Select location parameters or pin an inspection point. GEE extracts multi-sensor data to generate an audit-ready damage verdict in seconds.'
-              : 'Select an administrative region or drag the interactive map marker. Features are extracted directly via GEE and classified by the trained ExtraTrees model.'}
+            Select location parameters or pin an inspection point. GEE extracts multi-sensor data to generate an audit-ready damage verdict in seconds.
           </p>
         </div>
-
-        {pitchMode && (
-          <div className="hidden sm:flex items-center space-x-2 text-xs bg-emerald-50 border border-emerald-200 text-emerald-800 px-3.5 py-1.5 rounded-full font-medium shadow-sm">
-            <Zap className="w-4 h-4 text-emerald-600" />
-            <span>Turnaround: <strong>~5 Seconds</strong> (vs 2–4 Weeks manual)</span>
-          </div>
-        )}
+        <div className="flex-shrink-0 flex items-center space-x-2 text-xs bg-emerald-50 border border-emerald-200 text-emerald-800 px-3.5 py-1.5 rounded-full font-medium shadow-sm self-start sm:self-auto">
+          <Zap className="w-3.5 h-3.5 text-emerald-600" />
+          <span>Turnaround: <strong>~5 Seconds</strong></span>
+        </div>
       </div>
 
-      {/* Main Grid: Form/Map + Results */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Left Column: Input Form & Map (7 cols) */}
-        <div className="lg:col-span-7 space-y-6 print:hidden">
-          <form onSubmit={handleAnalyze} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+      {/* Main Grid: Form/Map (left) + Results (right) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+
+        {/* Left: Input Form & Map */}
+        <div className="lg:col-span-7 space-y-5 print:hidden">
+          <form onSubmit={handleAnalyze} className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-5">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h2 className="text-base font-bold text-slate-800 flex items-center gap-2">
+              <h2 className="text-sm sm:text-base font-bold text-slate-800 flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-emerald-600" />
                 Target Geography & Season
               </h2>
@@ -230,66 +204,53 @@ export default function Predict({ pitchMode }) {
             </div>
 
             {/* Dropdowns Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {/* State */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">State</label>
                 <select
                   value={selectedState}
                   onChange={(e) => setSelectedState(e.target.value)}
-                  className="w-full text-xs sm:text-sm bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                  className="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-slate-800 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 >
                   {states.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
               </div>
-
-              {/* District */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">District</label>
                 <select
                   value={selectedDistrict}
                   onChange={(e) => handleDistrictChange(e.target.value)}
-                  className="w-full text-xs sm:text-sm bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                  className="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-slate-800 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 >
                   {districts.map(d => <option key={d.District} value={d.District}>{d.District}</option>)}
                 </select>
               </div>
-
-              {/* Year */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">Harvest Year</label>
                 <select
                   value={selectedYear}
                   onChange={(e) => setSelectedYear(parseInt(e.target.value))}
-                  className="w-full text-xs sm:text-sm bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                  className="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-slate-800 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 >
                   {years.map(y => (
-                    <option key={y} value={y}>
-                      {y} {y > 2024 ? '• Live Operational' : ''}
-                    </option>
+                    <option key={y} value={y}>{y}{y > 2024 ? ' • Live Operational' : ''}</option>
                   ))}
                 </select>
               </div>
             </div>
 
-            {/* Year Notifications */}
+            {/* Future Year Notice */}
             {isFutureYear && (
-              <div className="flex items-start gap-2 bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs p-3 rounded-lg shadow-sm">
+              <div className="flex items-start gap-2 bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs p-3 rounded-lg">
                 <Zap className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5" />
                 <span>
-                  <strong>Live Operational Deployment (Rabi {selectedYear}):</strong> Year {selectedYear} processes real-time Google Earth Engine multi-spectral observations (MODIS, ERA5-Land, CHIRPS) with automated phenological stage anchoring.
+                  <strong>Live Operational Deployment (Rabi {selectedYear}):</strong> Year {selectedYear} processes real-time GEE multi-spectral observations with automated phenological anchoring.
                 </span>
               </div>
             )}
-            {!isHoldoutYear && !isFutureYear && !pitchMode && (
-              <div className="flex items-start gap-2 bg-blue-50 border border-blue-200 text-blue-800 text-xs p-2.5 rounded-lg">
-                <Info className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                <span>Model training period (2003–2018). Baseline calibrated on historical data.</span>
-              </div>
-            )}
 
-            {/* Manual Lat/Lon Coordinates */}
-            <div className="grid grid-cols-2 gap-4 pt-1">
+            {/* Coordinates */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-1">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">Latitude (°N)</label>
                 <input
@@ -297,7 +258,7 @@ export default function Predict({ pitchMode }) {
                   step="0.0001"
                   value={latitude}
                   onChange={(e) => setLatitude(parseFloat(e.target.value) || 0)}
-                  className="w-full text-xs sm:text-sm bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 font-mono text-slate-800 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                  className="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 font-mono text-slate-800 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 />
               </div>
               <div>
@@ -307,17 +268,15 @@ export default function Predict({ pitchMode }) {
                   step="0.0001"
                   value={longitude}
                   onChange={(e) => setLongitude(parseFloat(e.target.value) || 0)}
-                  className="w-full text-xs sm:text-sm bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 font-mono text-slate-800 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+                  className="w-full text-sm bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 font-mono text-slate-800 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 />
               </div>
             </div>
 
-            {/* Interactive Leaflet Map */}
-            <div className="space-y-1.5 pt-2">
+            {/* Interactive Map */}
+            <div className="space-y-1.5 pt-1">
               <div className="flex items-center justify-between text-xs">
-                <label className="font-semibold text-slate-700">
-                  Interactive GIS Pin Drop (Click or Drag Marker)
-                </label>
+                <label className="font-semibold text-slate-700">Interactive GIS Pin Drop</label>
                 <span className="text-[11px] text-slate-400">Catchment radius: 65km</span>
               </div>
               <MapPicker
@@ -329,28 +288,26 @@ export default function Predict({ pitchMode }) {
               />
             </div>
 
-            {/* Submit Button */}
+            {/* Submit */}
             <button
               type="submit"
+              id="analyze-btn"
               disabled={loading}
-              className="w-full mt-2 bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition-all flex items-center justify-center space-x-2 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full mt-1 bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition-all flex items-center justify-center space-x-2 disabled:opacity-60 disabled:cursor-not-allowed text-sm"
             >
               {loading ? (
                 <>
                   <RefreshCw className="w-4 h-4 animate-spin text-emerald-300" />
-                  <span className="text-sm">Synthesizing Satellite Imagery & Running ML...</span>
+                  <span>Synthesizing Satellite Imagery & Running ML...</span>
                 </>
               ) : (
                 <>
                   <Play className="w-4 h-4 fill-white" />
-                  <span className="text-sm">
-                    {pitchMode ? 'Run Instant Satellite Damage Assessment' : 'Analyze Crop Damage'}
-                  </span>
+                  <span>Run Instant Satellite Damage Assessment</span>
                 </>
               )}
             </button>
 
-            {/* Progress status */}
             {loading && progressStep && (
               <div className="text-center text-xs text-emerald-800 bg-emerald-50/90 border border-emerald-200 py-2.5 rounded-lg animate-pulse font-medium">
                 {progressStep}
@@ -359,8 +316,8 @@ export default function Predict({ pitchMode }) {
           </form>
         </div>
 
-        {/* Right Column: Prediction Results (5 cols) */}
-        <div className="lg:col-span-5 space-y-6 print:col-span-12">
+        {/* Right: Results Panel */}
+        <div className="lg:col-span-5 space-y-5 print:col-span-12">
           {error && (
             <div className="bg-rose-50 border border-rose-300 text-rose-900 rounded-2xl p-5 shadow-sm space-y-2">
               <div className="flex items-center space-x-2 text-rose-700 font-bold text-sm">
@@ -372,30 +329,27 @@ export default function Predict({ pitchMode }) {
           )}
 
           {result ? (
-            <div className="space-y-5">
-              {/* Primary Damage Classification Card */}
+            <div className="space-y-4 sm:space-y-5">
+              {/* Primary Damage Card */}
               {(() => {
                 const style = DAMAGE_STYLE[result.prediction.damage_class_id] || DAMAGE_STYLE[0];
                 const advisory = ACTIONABLE_ADVISORIES[result.prediction.damage_class_id] || ACTIONABLE_ADVISORIES[0];
-                const AdvIcon = advisory.icon;
 
                 return (
-                  <div className={`rounded-2xl p-6 border shadow-md space-y-5 ${style.bg}`}>
-                    <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
+                  <div className={`rounded-2xl p-5 sm:p-6 border shadow-md space-y-4 ${style.bg}`}>
+                    <div className="flex items-start justify-between border-b border-slate-200/60 pb-3 gap-2">
                       <div>
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                          {pitchMode ? 'Assessed Damage Severity Tier' : 'Crop Damage Assessment'}
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                          Assessed Damage Severity Tier
                         </span>
                         <h2 className="text-xl sm:text-2xl font-black mt-0.5 tracking-tight text-slate-900">
                           {style.label}
                         </h2>
-                        <p className="text-xs text-slate-600 mt-0.5 font-semibold">
-                          {pitchMode ? style.pitchTier : style.scientific}
-                        </p>
+                        <p className="text-xs text-slate-600 mt-0.5 font-semibold">{style.tier}</p>
                       </div>
-                      <div className="text-right">
-                        <span className={`text-xs font-bold px-2.5 py-1 rounded-full border ${style.badge}`}>
-                          {result.prediction.confidence_level} CONFIDENCE
+                      <div className="text-right flex-shrink-0">
+                        <span className={`text-xs font-bold px-2 py-1 rounded-full border whitespace-nowrap ${style.badge}`}>
+                          {result.prediction.confidence_level} CONF.
                         </span>
                         <p className="text-lg font-black font-mono mt-1 text-slate-800">
                           {(result.prediction.confidence_score * 100).toFixed(1)}%
@@ -403,7 +357,7 @@ export default function Predict({ pitchMode }) {
                       </div>
                     </div>
 
-                    {/* Location Summary Pill */}
+                    {/* Location Summary */}
                     <div className="grid grid-cols-2 gap-2 text-xs bg-white/80 p-3 rounded-xl border border-slate-200">
                       <div>
                         <span className="text-slate-400 block text-[10px]">District & State</span>
@@ -415,13 +369,13 @@ export default function Predict({ pitchMode }) {
                       </div>
                       <div>
                         <span className="text-slate-400 block text-[10px]">Coordinates</span>
-                        <span className="font-mono text-slate-700">
+                        <span className="font-mono text-slate-700 text-[11px]">
                           {result.location.latitude.toFixed(4)}°N, {result.location.longitude.toFixed(4)}°E
                         </span>
                       </div>
                       {result.prediction.pred_exposure_tmax_degC !== null && (
                         <div>
-                          <span className="text-slate-400 block text-[10px]">Estimated Heat Exposure (Tmax)</span>
+                          <span className="text-slate-400 block text-[10px]">Est. Heat Exposure</span>
                           <strong className="text-rose-700 font-mono">
                             {result.prediction.pred_exposure_tmax_degC} °C
                           </strong>
@@ -431,53 +385,38 @@ export default function Predict({ pitchMode }) {
 
                     {/* Probability Distribution */}
                     <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                          {pitchMode ? 'Damage Probability Breakdown' : 'Predicted Class Probabilities'}
-                        </h3>
-                        {pitchMode && (
-                          <span className="text-[10px] text-slate-400">Ensemble vote distribution</span>
-                        )}
-                      </div>
+                      <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                        Damage Probability Breakdown
+                      </h3>
                       <ProbabilityBar
                         probabilities={result.probabilities}
                         predictedClassId={result.prediction.damage_class_id}
-                        pitchMode={pitchMode}
                       />
                     </div>
                   </div>
                 );
               })()}
 
-              {/* Actionable Enterprise Advisory Box (The "So What?" Factor) */}
+              {/* Actionable Advisory */}
               {(() => {
                 const adv = ACTIONABLE_ADVISORIES[result.prediction.damage_class_id] || ACTIONABLE_ADVISORIES[0];
                 const Icon = adv.icon;
-
                 return (
-                  <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-3">
-                    <div className="flex items-center justify-between">
+                  <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm space-y-3">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
                       <div className="flex items-center space-x-2">
                         <Icon className="w-5 h-5 text-emerald-700" />
-                        <h3 className="font-bold text-sm text-slate-900">
-                          Actionable Operational Advisory
-                        </h3>
+                        <h3 className="font-bold text-sm text-slate-900">Actionable Operational Advisory</h3>
                       </div>
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${adv.priorityColor}`}>
                         {adv.priority}
                       </span>
                     </div>
-
                     <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5 text-xs">
-                      <p className="font-semibold text-slate-800">
-                        {adv.status}
-                      </p>
-                      <p className="text-slate-600 leading-relaxed">
-                        {adv.action}
-                      </p>
+                      <p className="font-semibold text-slate-800">{adv.status}</p>
+                      <p className="text-slate-600 leading-relaxed">{adv.action}</p>
                     </div>
-
-                    <div className="flex items-center justify-between pt-1 text-[11px] text-slate-400">
+                    <div className="flex flex-wrap items-center justify-between gap-1 pt-0.5 text-[11px] text-slate-400">
                       <span>Suitable for: Crop Insurance Desks & State Agronomists</span>
                       <span>Target: Rabi Grain Filling</span>
                     </div>
@@ -485,10 +424,10 @@ export default function Predict({ pitchMode }) {
                 );
               })()}
 
-              {/* Microclimate Anomaly Flag / OOD Detection (Reframed for Pitch) */}
+              {/* OOD / Microclimate Flag */}
               <div className={`p-4 rounded-xl border shadow-sm ${
-                result.ood.is_ood 
-                  ? 'bg-amber-50/90 border-amber-300 text-amber-900' 
+                result.ood.is_ood
+                  ? 'bg-amber-50/90 border-amber-300 text-amber-900'
                   : 'bg-emerald-50/60 border-emerald-200 text-emerald-900'
               }`}>
                 <div className="flex items-start space-x-2.5">
@@ -499,38 +438,23 @@ export default function Predict({ pitchMode }) {
                   )}
                   <div className="space-y-1 text-xs">
                     <p className="font-bold">
-                      {pitchMode
-                        ? (result.ood.is_ood ? 'Microclimate Anomaly Flagged' : 'Baseline Climate Profile: Standard')
-                        : (result.ood.is_ood ? 'Out-of-Distribution (OOD) Detected' : 'In-Distribution Sample')}
+                      {result.ood.is_ood ? 'Microclimate Anomaly Flagged' : 'Baseline Climate Profile: Standard'}
                     </p>
                     <p className="leading-relaxed">
-                      {pitchMode ? (
-                        result.ood.is_ood 
-                          ? 'This location exhibits an atypical combination of temperature, canopy desiccation, and rainfall compared to historical district averages. The assessment is valid, but is flagged for priority field audit to verify local microclimate dynamics.'
-                          : 'Satellite and meteorological parameters conform to established historical baseline patterns for this agro-ecological zone.'
-                      ) : (
-                        result.ood.is_ood
-                          ? "⚠️ This location's satellite/weather feature profile differs from the model's training distribution (Mahalanobis distance exceeds threshold). The prediction is available but may have elevated uncertainty."
-                          : "Input features are within the model's reference training distribution."
-                      )}
+                      {result.ood.is_ood
+                        ? 'This location exhibits an atypical combination of temperature, canopy desiccation, and rainfall. The assessment is valid, but flagged for priority field audit to verify local microclimate dynamics.'
+                        : 'Satellite and meteorological parameters conform to established historical baseline patterns for this agro-ecological zone.'}
                     </p>
-                    
-                    {!pitchMode && (
-                      <div className="flex items-center space-x-3 text-[11px] text-slate-600 pt-1 font-mono">
-                        <span>OOD Score: <strong>{result.ood.ood_score.toFixed(2)}</strong></span>
-                        <span>Threshold: <strong>{result.ood.threshold.toFixed(2)}</strong></span>
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>
 
-              {/* Rule-Based Physical Warnings Card */}
-              {result.rule_warnings && result.rule_warnings.length > 0 && (
+              {/* Rule Warnings */}
+              {result.rule_warnings?.length > 0 && (
                 <div className="bg-rose-50 border border-rose-300 rounded-xl p-4 shadow-sm space-y-2">
                   <div className="flex items-center space-x-2 text-rose-800 font-bold text-xs uppercase tracking-wider">
                     <ShieldAlert className="w-4 h-4 text-rose-600" />
-                    <span>Physical Consistency Verification Flag</span>
+                    <span>Physical Consistency Flag</span>
                   </div>
                   <ul className="space-y-1.5 text-xs text-rose-900">
                     {result.rule_warnings.map((warn, i) => (
@@ -543,35 +467,30 @@ export default function Predict({ pitchMode }) {
                 </div>
               )}
 
-              {/* Action Buttons: Executive PDF Export & Feature Drawer */}
+              {/* Action Buttons */}
               <div className="space-y-3">
                 <button
                   type="button"
                   onClick={handlePrintReport}
+                  id="print-report-btn"
                   className="w-full flex items-center justify-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all text-xs sm:text-sm"
                 >
                   <Printer className="w-4 h-4 text-emerald-400" />
-                  <span>Generate One-Click Executive PDF Report</span>
+                  <span>Generate Executive PDF Report</span>
                 </button>
-
-                {/* Collapsible Extracted Features */}
                 <FeaturesTable featureExtraction={result.feature_extraction} />
               </div>
             </div>
           ) : (
-            <div className="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm text-center space-y-4">
+            <div className="bg-white rounded-2xl p-8 sm:p-10 border border-slate-200/80 shadow-sm text-center space-y-4">
               <div className="w-14 h-14 bg-emerald-50 rounded-2xl mx-auto flex items-center justify-center text-emerald-700">
                 <Compass className="w-7 h-7" />
               </div>
-              <h3 className="font-bold text-slate-800 text-base">
-                {pitchMode ? 'Ready for Instant Assessment' : 'Ready for Location Analysis'}
-              </h3>
-              <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
-                {pitchMode
-                  ? 'Select any district in Punjab, Haryana, or Western UP, choose a harvest year, and click the button to retrieve satellite intelligence in seconds.'
-                  : 'Choose a location in Haryana, Punjab, or Western UP, select a harvest year, and click Analyze Crop Damage to trigger live Google Earth Engine data extraction.'}
+              <h3 className="font-bold text-slate-800 text-base">Ready for Instant Assessment</h3>
+              <p className="text-xs text-slate-500 max-w-xs mx-auto leading-relaxed">
+                Select any district in Punjab, Haryana, or Western UP, choose a harvest year, and click the button to retrieve satellite intelligence in seconds.
               </p>
-              <div className="pt-2">
+              <div className="pt-1">
                 <span className="text-[11px] text-emerald-700 font-medium bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
                   ⚡ 5-Second Multi-Spectral GEE Processing
                 </span>

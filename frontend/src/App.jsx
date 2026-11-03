@@ -1,88 +1,89 @@
 import React, { useState, useEffect } from 'react';
+import { AuthProvider, useAuth } from './AuthContext';
 import Navbar from './components/Navbar';
 import Overview from './pages/Overview';
 import Predict from './pages/Predict';
 import DistrictAnalysis from './pages/DistrictAnalysis';
 import HistoricalAnalysis from './pages/HistoricalAnalysis';
-import ModelPerformance from './pages/ModelPerformance';
-import PredictionHistory from './pages/PredictionHistory';
+import Auth from './pages/Auth';
 import { getHealth } from './api';
 
-export default function App() {
+function AppShell() {
+  const { user, loading } = useAuth();
   const [activeTab, setActiveTab] = useState('overview');
   const [geeConnected, setGeeConnected] = useState(false);
-  const [pitchMode, setPitchMode] = useState(true);
 
   useEffect(() => {
     getHealth()
-      .then(res => {
+      .then((res) => {
         if (res.services && res.services.google_earth_engine === 'connected') {
           setGeeConnected(true);
         }
       })
-      .catch(err => {
-        console.error('Health check error:', err);
-      });
+      .catch((err) => console.error('Health check error:', err));
   }, []);
 
-  // If pitch mode is toggled on and user is on a hidden tab, redirect to overview
-  useEffect(() => {
-    if (pitchMode && (activeTab === 'performance' || activeTab === 'history')) {
-      setActiveTab('overview');
-    }
-  }, [pitchMode, activeTab]);
+  // Show nothing while restoring session
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-10 h-10 border-2 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
+          <p className="text-slate-400 text-sm">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Auth wall — show sign-in/sign-up if not authenticated
+  if (!user) {
+    return <Auth />;
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col text-slate-800">
-      {/* Top Navbar */}
       <Navbar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         geeStatus={geeConnected}
-        pitchMode={pitchMode}
-        setPitchMode={setPitchMode}
       />
 
-      {/* Main Content Area */}
       <main className="flex-1">
         {activeTab === 'overview' && (
-          <Overview onStartAnalysis={() => setActiveTab('predict')} pitchMode={pitchMode} />
+          <Overview onStartAnalysis={() => setActiveTab('predict')} />
         )}
-        {activeTab === 'predict' && <Predict pitchMode={pitchMode} />}
-        {activeTab === 'district' && <DistrictAnalysis pitchMode={pitchMode} />}
-        {activeTab === 'historical' && <HistoricalAnalysis pitchMode={pitchMode} />}
-        {!pitchMode && activeTab === 'performance' && <ModelPerformance />}
-        {!pitchMode && activeTab === 'history' && <PredictionHistory />}
+        {activeTab === 'predict' && <Predict />}
+        {activeTab === 'district' && <DistrictAnalysis />}
+        {activeTab === 'historical' && <HistoricalAnalysis />}
       </main>
 
-      {/* Academic & Research Footer */}
-      <footer className="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-12 print:hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <footer className="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12 print:hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <p className="font-semibold text-slate-200">
-                Machine Learning-Based Wheat Crop Damage Estimation Due to Heat Waves
+                Wheat Heatwave Risk AI — Enterprise Platform
               </p>
               <p className="text-[11px] text-slate-500 mt-0.5">
-                Multi-Source Satellite & Meteorological Synthesis (MODIS • ERA5-Land • CHIRPS • ExtraTrees)
+                Satellite Agrometeorological Intelligence · Punjab, Haryana & Western UP
               </p>
             </div>
-            <div className="flex items-center space-x-4 text-[11px]">
-              <span className="text-emerald-400 font-medium">Research-Grade Pipeline</span>
-              <span>•</span>
-              <span>Punjab, Haryana & Western UP Wheat Belt</span>
+            <div className="flex items-center space-x-4 text-[11px] text-slate-500">
+              <span>MODIS · ERA5-Land · CHIRPS</span>
+              <span>·</span>
+              <span className="text-emerald-400 font-medium">37 Districts · 2003–2024</span>
             </div>
-          </div>
-          <div className="border-t border-slate-800/80 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] text-slate-500">
-            <p>
-              Academic Research Disclosure: Predictions are generated by the trained ExtraTreesClassifier (Holdout Accuracy: 76.13%, ROC-AUC: 90.59%). Predictions should be interpreted in conjunction with ground-truth agrometeorological advisories.
-            </p>
-            <p className="whitespace-nowrap">
-              Project Period: 2003–2024
-            </p>
           </div>
         </div>
       </footer>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppShell />
+    </AuthProvider>
   );
 }
